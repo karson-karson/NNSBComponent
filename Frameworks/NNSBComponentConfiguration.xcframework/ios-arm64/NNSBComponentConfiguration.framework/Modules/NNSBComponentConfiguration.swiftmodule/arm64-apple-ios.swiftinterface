@@ -12,6 +12,131 @@ import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+public protocol KeyValueStorage {
+  func set(_ value: Swift.String, forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func get(forKey key: Swift.String) -> Swift.String?
+  #endif
+  func remove(forKey key: Swift.String)
+  func set(_ value: [Swift.String], forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func getArray(forKey key: Swift.String) -> [Swift.String]?
+  #endif
+  func set(_ value: Foundation.Data, forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  func getData(forKey key: Swift.String) -> Foundation.Data?
+  #endif
+}
+public struct BetSlipRemoteConfig : Swift.Codable, Swift.Equatable {
+  public let acceptAllOdds: Swift.Bool
+  public static func == (a: NNSBComponentConfiguration.BetSlipRemoteConfig, b: NNSBComponentConfiguration.BetSlipRemoteConfig) -> Swift.Bool
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum BetSlipRemoteConfigMetaKey {
+  public static let betSlipConfigUrl: Swift.String
+}
+public enum SBLanguage : Swift.String, Swift.Codable, Swift.CaseIterable, Swift.Equatable {
+  case vi, th, id, ms, en
+  case system
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func from(_ raw: Swift.String?) -> NNSBComponentConfiguration.SBLanguage
+  #endif
+  public var apiCode: Swift.String {
+    get
+  }
+  public var l10nFile: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [NNSBComponentConfiguration.SBLanguage]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [NNSBComponentConfiguration.SBLanguage] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public enum SBCountry : Swift.String, Swift.Codable, Swift.CaseIterable, Swift.Equatable {
+  case vn, th, id, my, ph, sg
+  case unknown
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func from(_ raw: Swift.String?) -> NNSBComponentConfiguration.SBCountry
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias AllCases = [NNSBComponentConfiguration.SBCountry]
+  public typealias RawValue = Swift.String
+  nonisolated public static var allCases: [NNSBComponentConfiguration.SBCountry] {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+}
+final public class KeychainStorage : NNSBComponentConfiguration.KeyValueStorage {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(service: Swift.String? = nil, accessGroup: Swift.String? = nil, fallbackToNoService: Swift.Bool = true)
+  #endif
+  final public func set(_ value: Swift.String, forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func get(forKey key: Swift.String) -> Swift.String?
+  #endif
+  final public func remove(forKey key: Swift.String)
+  final public func set(_ value: [Swift.String], forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getArray(forKey key: Swift.String) -> [Swift.String]?
+  #endif
+  final public func set(_ value: Foundation.Data, forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getData(forKey key: Swift.String) -> Foundation.Data?
+  #endif
+  @objc deinit
+}
+public protocol SBColorSchemeManagerProtocol : Swift.Sendable {
+  var colorScheme: SwiftUICore.ColorScheme { get set }
+  var isLightMode: Swift.Bool { get }
+}
+extension Dependencies.DependencyValues {
+  public var sbColorSchemeManager: any NNSBComponentConfiguration.SBColorSchemeManagerProtocol {
+    get
+    set
+  }
+}
+public protocol SBBetSettingManagerProtocol : Swift.Sendable {
+  var isComboBetting: Swift.Bool { get }
+  func setIsComboBetting(_ isComboBetting: Swift.Bool)
+}
+extension Dependencies.DependencyValues {
+  public var sbBetSettingManager: any NNSBComponentConfiguration.SBBetSettingManagerProtocol {
+    get
+    set
+  }
+}
+@_hasMissingDesignatedInitializers final public class UserDefaultsStorage : NNSBComponentConfiguration.KeyValueStorage {
+  final public func set(_ value: Swift.String, forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func get(forKey key: Swift.String) -> Swift.String?
+  #endif
+  final public func remove(forKey key: Swift.String)
+  final public func set(_ value: [Swift.String], forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getArray(forKey key: Swift.String) -> [Swift.String]?
+  #endif
+  final public func set(_ value: Foundation.Data, forKey key: Swift.String)
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func getData(forKey key: Swift.String) -> Foundation.Data?
+  #endif
+  @objc deinit
+}
+extension Swift.Encodable {
+  public func asDictionary() throws -> [Swift.String : Any]
+  public func asDictionarySafe(removingKeys keys: [Swift.String] = []) -> [Swift.String : Any]
+}
 public enum SBSportItemType : Swift.Int, Swift.Codable {
   case football
   case basketball
@@ -51,56 +176,6 @@ public enum SBSportItemType : Swift.Int, Swift.Codable {
   public var rawValue: Swift.Int {
     get
   }
-}
-public protocol KeyValueStorage {
-  func set(_ value: Swift.String, forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  func get(forKey key: Swift.String) -> Swift.String?
-  #endif
-  func remove(forKey key: Swift.String)
-  func set(_ value: [Swift.String], forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  func getArray(forKey key: Swift.String) -> [Swift.String]?
-  #endif
-  func set(_ value: Foundation.Data, forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  func getData(forKey key: Swift.String) -> Foundation.Data?
-  #endif
-}
-@_hasMissingDesignatedInitializers final public class UserDefaultsStorage : NNSBComponentConfiguration.KeyValueStorage {
-  final public func set(_ value: Swift.String, forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func get(forKey key: Swift.String) -> Swift.String?
-  #endif
-  final public func remove(forKey key: Swift.String)
-  final public func set(_ value: [Swift.String], forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func getArray(forKey key: Swift.String) -> [Swift.String]?
-  #endif
-  final public func set(_ value: Foundation.Data, forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func getData(forKey key: Swift.String) -> Foundation.Data?
-  #endif
-  @objc deinit
-}
-final public class KeychainStorage : NNSBComponentConfiguration.KeyValueStorage {
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init(service: Swift.String? = nil, accessGroup: Swift.String? = nil, fallbackToNoService: Swift.Bool = true)
-  #endif
-  final public func set(_ value: Swift.String, forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func get(forKey key: Swift.String) -> Swift.String?
-  #endif
-  final public func remove(forKey key: Swift.String)
-  final public func set(_ value: [Swift.String], forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func getArray(forKey key: Swift.String) -> [Swift.String]?
-  #endif
-  final public func set(_ value: Foundation.Data, forKey key: Swift.String)
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func getData(forKey key: Swift.String) -> Foundation.Data?
-  #endif
-  @objc deinit
 }
 public enum StorageType {
   case keychain
@@ -236,77 +311,6 @@ extension Dependencies.DependencyValues {
     set
   }
 }
-public struct BetSlipRemoteConfig : Swift.Codable, Swift.Equatable {
-  public let acceptAllOdds: Swift.Bool
-  public static func == (a: NNSBComponentConfiguration.BetSlipRemoteConfig, b: NNSBComponentConfiguration.BetSlipRemoteConfig) -> Swift.Bool
-  public func encode(to encoder: any Swift.Encoder) throws
-  public init(from decoder: any Swift.Decoder) throws
-}
-public enum BetSlipRemoteConfigMetaKey {
-  public static let betSlipConfigUrl: Swift.String
-}
-public enum SBLanguage : Swift.String, Swift.Codable, Swift.CaseIterable, Swift.Equatable {
-  case vi, th, id, ms, en
-  case system
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func from(_ raw: Swift.String?) -> NNSBComponentConfiguration.SBLanguage
-  #endif
-  public var apiCode: Swift.String {
-    get
-  }
-  public var l10nFile: Swift.String {
-    get
-  }
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.String)
-  #endif
-  public typealias AllCases = [NNSBComponentConfiguration.SBLanguage]
-  public typealias RawValue = Swift.String
-  nonisolated public static var allCases: [NNSBComponentConfiguration.SBLanguage] {
-    get
-  }
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public enum SBCountry : Swift.String, Swift.Codable, Swift.CaseIterable, Swift.Equatable {
-  case vn, th, id, my, ph, sg
-  case unknown
-  #if compiler(>=5.3) && $NonescapableTypes
-  public static func from(_ raw: Swift.String?) -> NNSBComponentConfiguration.SBCountry
-  #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  public init?(rawValue: Swift.String)
-  #endif
-  public typealias AllCases = [NNSBComponentConfiguration.SBCountry]
-  public typealias RawValue = Swift.String
-  nonisolated public static var allCases: [NNSBComponentConfiguration.SBCountry] {
-    get
-  }
-  public var rawValue: Swift.String {
-    get
-  }
-}
-public protocol SBColorSchemeManagerProtocol : Swift.Sendable {
-  var colorScheme: SwiftUICore.ColorScheme { get set }
-  var isLightMode: Swift.Bool { get }
-}
-extension Dependencies.DependencyValues {
-  public var sbColorSchemeManager: any NNSBComponentConfiguration.SBColorSchemeManagerProtocol {
-    get
-    set
-  }
-}
-public protocol SBBetSettingManagerProtocol : Swift.Sendable {
-  var isComboBetting: Swift.Bool { get }
-  func setIsComboBetting(_ isComboBetting: Swift.Bool)
-}
-extension Dependencies.DependencyValues {
-  public var sbBetSettingManager: any NNSBComponentConfiguration.SBBetSettingManagerProtocol {
-    get
-    set
-  }
-}
 public enum SBL10n {
   public static func t(_ key: Swift.String, _ args: [Swift.String : any Swift.CustomStringConvertible] = [:]) -> Swift.String
   public static var localeIdentifier: Swift.String {
@@ -324,16 +328,12 @@ extension Swift.String {
   public static func flatten(_ dict: [Swift.String : Any], prefix: Swift.String = "") -> [Swift.String : Swift.String]
   @objc deinit
 }
-extension Swift.Encodable {
-  public func asDictionary() throws -> [Swift.String : Any]
-  public func asDictionarySafe(removingKeys keys: [Swift.String] = []) -> [Swift.String : Any]
-}
+extension NNSBComponentConfiguration.SBLanguage : Swift.Hashable {}
+extension NNSBComponentConfiguration.SBLanguage : Swift.RawRepresentable {}
+extension NNSBComponentConfiguration.SBCountry : Swift.Hashable {}
+extension NNSBComponentConfiguration.SBCountry : Swift.RawRepresentable {}
 extension NNSBComponentConfiguration.SBSportItemType : Swift.Equatable {}
 extension NNSBComponentConfiguration.SBSportItemType : Swift.Hashable {}
 extension NNSBComponentConfiguration.SBSportItemType : Swift.RawRepresentable {}
 extension NNSBComponentConfiguration.StorageType : Swift.Equatable {}
 extension NNSBComponentConfiguration.StorageType : Swift.Hashable {}
-extension NNSBComponentConfiguration.SBLanguage : Swift.Hashable {}
-extension NNSBComponentConfiguration.SBLanguage : Swift.RawRepresentable {}
-extension NNSBComponentConfiguration.SBCountry : Swift.Hashable {}
-extension NNSBComponentConfiguration.SBCountry : Swift.RawRepresentable {}
