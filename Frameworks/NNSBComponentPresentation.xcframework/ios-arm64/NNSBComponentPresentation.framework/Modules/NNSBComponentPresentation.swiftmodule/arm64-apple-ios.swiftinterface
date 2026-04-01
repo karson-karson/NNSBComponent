@@ -1,0 +1,3342 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-module-flags: -target arm64-apple-ios16.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name NNSBComponentPresentation
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+import AVFoundation
+import AVKit
+import Combine
+import ComposableArchitecture
+import Foundation
+import IdentifiedCollections
+import Kingfisher
+import NNNetwork
+import NNSBComponentBusiness
+import NNSBComponentConfiguration
+import NNUICore
+import PopupView
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _AVKit_SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
+public enum SBComponentContext {
+}
+public struct SwitchableFeature : ComposableArchitecture.Reducer {
+  public struct State : Swift.Equatable {
+    public var selectedIndex: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public var titles: [Swift.String] {
+      get
+      set
+      _modify
+    }
+    public init(selectedIndex: Swift.Int = 0, titles: [Swift.String] = [])
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.SwitchableFeature.State, b: NNSBComponentPresentation.SwitchableFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case selectedTab(type: Swift.Int)
+    public static func == (a: NNSBComponentPresentation.SwitchableFeature.Action, b: NNSBComponentPresentation.SwitchableFeature.Action) -> Swift.Bool
+  }
+  public init()
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.SwitchableFeature.State, NNSBComponentPresentation.SwitchableFeature.Action> {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17SwitchableFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.SwitchableFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+public struct MatchSetScoreBoard : Swift.Equatable, Swift.Sendable {
+  public let maxSets: Swift.Int
+  public let homeSetPoints: [Swift.Int?]
+  public let awaySetPoints: [Swift.Int?]
+  public let homeSetWins: Swift.Int
+  public let awaySetWins: Swift.Int
+  public let totalHomePoints: Swift.Int
+  public let totalAwayPoints: Swift.Int
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(maxSets: Swift.Int, homeSetPoints: [Swift.Int?], awaySetPoints: [Swift.Int?], homeSetWins: Swift.Int, awaySetWins: Swift.Int, totalHomePoints: Swift.Int, totalAwayPoints: Swift.Int)
+  #endif
+  public static func == (a: NNSBComponentPresentation.MatchSetScoreBoard, b: NNSBComponentPresentation.MatchSetScoreBoard) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct SetScoreboardView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let board: NNSBComponentPresentation.MatchSetScoreBoard
+  @_Concurrency.MainActor @preconcurrency public let totalTitle: Swift.String
+  @_Concurrency.MainActor @preconcurrency public let homeTitle: Swift.String
+  @_Concurrency.MainActor @preconcurrency public let awayTitle: Swift.String
+  @_Concurrency.MainActor @preconcurrency public let setTitle: Swift.String
+  @_Concurrency.MainActor @preconcurrency public let context: NNSBComponentPresentation.ScoreboardDisplayContext
+  @_Concurrency.MainActor @preconcurrency public let sportId: Swift.Int?
+  @_Concurrency.MainActor @preconcurrency public let servingTeam: NNSBComponentPresentation.ServingTeam?
+  @_Concurrency.MainActor @preconcurrency public let currentGameHomePoint: Swift.String?
+  @_Concurrency.MainActor @preconcurrency public let currentGameAwayPoint: Swift.String?
+  @_Concurrency.MainActor @preconcurrency public let gameTitle: Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(board: NNSBComponentPresentation.MatchSetScoreBoard, totalTitle: Swift.String = "Tổng điểm", homeTitle: Swift.String = "Đội nhà", awayTitle: Swift.String = "Đội khách", setTitle: Swift.String = "Set", context: NNSBComponentPresentation.ScoreboardDisplayContext = .matchCard, sportId: Swift.Int? = nil, servingTeam: NNSBComponentPresentation.ServingTeam? = nil, currentGameHomePoint: Swift.String? = nil, currentGameAwayPoint: Swift.String? = nil, gameTitle: Swift.String = "Game")
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17SetScoreboardViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BetCardListView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.BetCardListFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15BetCardListViewV4bodyQrvp", 0) __
+}
+public struct MatchTeam : Swift.Equatable {
+  public var iconURL: Foundation.URL?
+  public var name: Swift.String?
+  public var score: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(iconURL: Foundation.URL?, name: Swift.String?, score: Swift.Int?)
+  #endif
+  public static func == (a: NNSBComponentPresentation.MatchTeam, b: NNSBComponentPresentation.MatchTeam) -> Swift.Bool
+}
+public enum ScoreboardDisplayContext : Swift.Equatable, Swift.Sendable {
+  case matchCard
+  case matchDetail
+  public static func == (a: NNSBComponentPresentation.ScoreboardDisplayContext, b: NNSBComponentPresentation.ScoreboardDisplayContext) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct BetUtils {
+  public static func calculatePreviousTotalRate(from items: [NNSBComponentBusiness.BetItem]) -> Swift.Double
+  public static func calculatePreviousTotalRateDecimal(from items: [NNSBComponentBusiness.BetItem]) -> Swift.Double
+  public static func calculateTotalRateDecimal(from items: [NNSBComponentBusiness.BetItem]) -> Swift.Double
+  public static func calculateTotalRateDecimalV2(from items: [NNSBComponentBusiness.BetItem]) -> Swift.Double
+  public static func calculatePreviousTotalRateDecimalV2(from items: [NNSBComponentBusiness.BetItem]) -> Swift.Double
+  public static func calculateTotalRate(from items: [NNSBComponentBusiness.BetItem]) -> Swift.Double
+  public static func calculateRefund(amount: Swift.String, odds: Swift.Double) -> Swift.Int
+  public static func decimalToMalaysia(_ decimal: Swift.Double) -> Swift.Double
+  public static func decimalToHongKong(_ decimal: Swift.Double) -> Swift.Double
+  public static func decimalToIndonesia(_ decimal: Swift.Double) -> Swift.Double
+  public static func roundTo2(_ value: Swift.Double) -> Swift.Double
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func format(odds: Swift.Double?) -> Swift.String
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func format(odds: Swift.String?) -> Swift.String
+  #endif
+  public static func oddByStyle(decimalOdd: Swift.Double, marketId: Swift.Int) -> Swift.Double
+  public static func formatOddsZeroString(_ value: Swift.String) -> Swift.String
+}
+extension NNSBComponentPresentation.BetUtils {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func setGamePrefix(from raw: Swift.String) -> Swift.String?
+  #endif
+}
+extension NNSBComponentBusiness.BetItem : @unchecked Swift.Sendable {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func betItemV2(from event: NNSBComponentBusiness.EventV2Event, leagueName: Swift.String, marketKind: NNSBComponentBusiness.MarketKind, selection: NNSBComponentBusiness.EventV2Selection, selectedSelectionId: Swift.String) -> NNSBComponentBusiness.BetItem?
+  #endif
+}
+extension Swift.String {
+  public var formatOddsZeroString: Swift.String {
+    get
+  }
+}
+extension NNSBComponentPresentation.FavoriteListFeature {
+  public enum Path {
+    case matchDetail(NNSBComponentPresentation.MatchDetailFeature)
+    @dynamicMemberLookup public enum State : ComposableArchitecture.CaseReducerState, Swift.Equatable {
+      public typealias StateReducer = NNSBComponentPresentation.FavoriteListFeature.Path
+      case matchDetail(NNSBComponentPresentation.MatchDetailFeature.State)
+      public var _$id: ComposableArchitecture.ObservableStateID {
+        get
+      }
+      public mutating func _$willModify()
+      public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+        public subscript(root: NNSBComponentPresentation.FavoriteListFeature.Path.State) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.State> {
+          get
+        }
+        public var matchDetail: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Path.State, NNSBComponentPresentation.MatchDetailFeature.State> {
+          get
+        }
+        public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.State>]>
+        public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.State>]>.Element
+        public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.State>]>
+        public typealias Root = NNSBComponentPresentation.FavoriteListFeature.Path.State
+      }
+      public static var allCasePaths: NNSBComponentPresentation.FavoriteListFeature.Path.State.AllCasePaths {
+        get
+      }
+      public static func == (a: NNSBComponentPresentation.FavoriteListFeature.Path.State, b: NNSBComponentPresentation.FavoriteListFeature.Path.State) -> Swift.Bool
+    }
+    public enum Action {
+      case matchDetail(NNSBComponentPresentation.MatchDetailFeature.Action)
+      public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+        public subscript(root: NNSBComponentPresentation.FavoriteListFeature.Path.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.Action> {
+          get
+        }
+        public var matchDetail: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Path.Action, NNSBComponentPresentation.MatchDetailFeature.Action> {
+          get
+        }
+        public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.Action>]>
+        public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.Action>]>.Element
+        public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Path.Action>]>
+        public typealias Root = NNSBComponentPresentation.FavoriteListFeature.Path.Action
+      }
+      public static var allCasePaths: NNSBComponentPresentation.FavoriteListFeature.Path.Action.AllCasePaths {
+        get
+      }
+    }
+    public static var body: ComposableArchitecture.Scope<NNSBComponentPresentation.FavoriteListFeature.Path.State, NNSBComponentPresentation.FavoriteListFeature.Path.Action, NNSBComponentPresentation.MatchDetailFeature> {
+      get
+    }
+    public enum CaseScope {
+      case matchDetail(ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchDetailFeature>)
+    }
+    @preconcurrency @_Concurrency.MainActor public static func scope(_ store: ComposableArchitecture.Store<NNSBComponentPresentation.FavoriteListFeature.Path.State, NNSBComponentPresentation.FavoriteListFeature.Path.Action>) -> NNSBComponentPresentation.FavoriteListFeature.Path.CaseScope
+  }
+}
+extension NNSBComponentPresentation.FavoriteListFeature.Path.Action : Swift.Equatable {
+  public static func == (a: NNSBComponentPresentation.FavoriteListFeature.Path.Action, b: NNSBComponentPresentation.FavoriteListFeature.Path.Action) -> Swift.Bool
+}
+public struct FavoriteListFeature {
+  public init()
+  public struct State : Swift.Equatable, Swift.Identifiable {
+    public var id: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var favoriteMatches: [NNSBComponentPresentation.FavoriteMatchList] {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var designModeState: NNSBComponentBusiness.DesignModeType? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public init(favoriteMatches: [NNSBComponentPresentation.FavoriteMatchList] = [])
+    public static func extractFavoritesFromRepository() -> [NNSBComponentPresentation.FavoriteMatchList]
+    public static func == (lhs: NNSBComponentPresentation.FavoriteListFeature.State, rhs: NNSBComponentPresentation.FavoriteListFeature.State) -> Swift.Bool
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public typealias ID = Swift.String
+  }
+  public enum Action : Swift.Equatable {
+    case path(ComposableArchitecture.PresentationAction<NNSBComponentPresentation.FavoriteListFeature.Path.Action>)
+    case sendFavoriteRequest(match: NNSBComponentBusiness.MatchEntity, league: NNSBComponentBusiness.EventEntities, sportId: Swift.Int?)
+    case addFavoriteEntity(leagueEntity: NNSBComponentBusiness.EventEntities, index: Swift.Int, matchEntity: NNSBComponentBusiness.MatchEntity)
+    case openMatchDetail(Swift.Int?, NNSBComponentBusiness.MatchEntity)
+    case refreshFavorites
+    case delegate(NNSBComponentPresentation.FavoriteListFeature.Action.DelegateAction)
+    public enum DelegateAction : Swift.Equatable {
+      case didRemoveFavorite(leagueId: Swift.Int, matchId: Swift.Int)
+      case openBets(NNSBComponentBusiness.BetItem, NNSBComponentBusiness.EventEntities, NNSBComponentBusiness.MatchEntity)
+      public static func == (a: NNSBComponentPresentation.FavoriteListFeature.Action.DelegateAction, b: NNSBComponentPresentation.FavoriteListFeature.Action.DelegateAction) -> Swift.Bool
+    }
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.FavoriteListFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Action> {
+        get
+      }
+      public var path: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Action, ComposableArchitecture.PresentationAction<NNSBComponentPresentation.FavoriteListFeature.Path.Action>> {
+        get
+      }
+      #if compiler(>=5.3) && $NonescapableTypes
+      public var sendFavoriteRequest: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Action, (match: NNSBComponentBusiness.MatchEntity, league: NNSBComponentBusiness.EventEntities, sportId: Swift.Int?)> {
+        get
+      }
+      #endif
+      public var addFavoriteEntity: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Action, (leagueEntity: NNSBComponentBusiness.EventEntities, index: Swift.Int, matchEntity: NNSBComponentBusiness.MatchEntity)> {
+        get
+      }
+      #if compiler(>=5.3) && $NonescapableTypes
+      public var openMatchDetail: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Action, (Swift.Int?, NNSBComponentBusiness.MatchEntity)> {
+        get
+      }
+      #endif
+      public var refreshFavorites: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Action, Swift.Void> {
+        get
+      }
+      public var delegate: CasePathsCore.AnyCasePath<NNSBComponentPresentation.FavoriteListFeature.Action, NNSBComponentPresentation.FavoriteListFeature.Action.DelegateAction> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.FavoriteListFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.FavoriteListFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.FavoriteListFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.FavoriteListFeature.Action, b: NNSBComponentPresentation.FavoriteListFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.FavoriteListFeature.State, NNSBComponentPresentation.FavoriteListFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.FavoriteListFeature.State {
+  public static func withCurrentFavorites() -> NNSBComponentPresentation.FavoriteListFeature.State
+}
+extension NNSBComponentPresentation.FavoriteListFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.FavoriteListFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation19FavoriteListFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.FavoriteListFeature.Path : ComposableArchitecture.CaseReducer, ComposableArchitecture.Reducer {
+  public typealias Body = ComposableArchitecture.Scope<NNSBComponentPresentation.FavoriteListFeature.Path.State, NNSBComponentPresentation.FavoriteListFeature.Path.Action, NNSBComponentPresentation.MatchDetailFeature>
+}
+extension NNSBComponentPresentation.FavoriteListFeature.Path.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.FavoriteListFeature.Path.State : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+extension NNSBComponentPresentation.FavoriteListFeature.Path.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+extension NNSBComponentPresentation.FavoriteListFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchDetailTabsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchDetailTabsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation19MatchDetailTabsViewV4bodyQrvp", 0) __
+}
+public enum SBNavigationTitleType {
+  case text(Swift.String)
+  case icon(Swift.String)
+}
+@_Concurrency.MainActor @preconcurrency public struct SBNavigationView : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(title: NNSBComponentPresentation.SBNavigationTitleType, isBold: Swift.Bool = false, trailingView: SwiftUICore.AnyView? = nil, backgroundImageName: Swift.String? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation16SBNavigationViewV4bodyQrvp", 0) __
+}
+extension NNSBComponentBusiness.EventV2Event {
+  public var timeInfo: (value: Swift.String, color: SwiftUICore.Color) {
+    get
+  }
+  public var dateTimeDisplay: Swift.String {
+    get
+  }
+  public var dateTimeColor: SwiftUICore.Color {
+    get
+  }
+}
+extension NNSBComponentBusiness.EventV2Event {
+  public var isMatchEnd: Swift.Bool {
+    get
+  }
+}
+extension NNSBComponentBusiness.EventV2Event {
+  public func toMatchCardState(isFavorite: Swift.Bool, leagueName: Swift.String) -> NNSBComponentPresentation.MatchCardFullFeature.State
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toMatchCardState(leagueId: Swift.Int, leagueName: Swift.String, leagueLogoURL: Foundation.URL?, isFavorite: Swift.Bool, previousState: NNSBComponentPresentation.MatchCardFullFeature.State?) -> NNSBComponentPresentation.MatchCardFullFeature.State
+  #endif
+}
+@_Concurrency.MainActor @preconcurrency public struct StatsBarView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(title: Swift.String, homeValue: Swift.Int, awayValue: Swift.Int, homePercentage: Swift.Double, awayPercentage: Swift.Double)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation12StatsBarViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct CircularStatsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(homeValue: Swift.Int, awayValue: Swift.Int, title: Swift.String)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17CircularStatsViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct TopBetTabsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.TopBetTabsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation14TopBetTabsViewV4bodyQrvp", 0) __
+}
+public struct MatchMarketFeature {
+  public init()
+  public struct State : Swift.Equatable, Swift.Sendable {
+    public var matchId: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var sportId: Swift.Int {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var marketCount: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var selected: NNSBComponentBusiness.MarketPeriod {
+      get
+      set
+      _modify
+    }
+    public var tt: IdentifiedCollections.IdentifiedArrayOf<NNSBComponentBusiness.MarketStrip> {
+      get
+      set
+      _modify
+    }
+    public var h1: IdentifiedCollections.IdentifiedArrayOf<NNSBComponentBusiness.MarketStrip> {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(matchId: Swift.String = "", sportId: Swift.Int = 1, marketCount: Swift.Int? = nil, tt: [NNSBComponentBusiness.MarketStrip] = [], h1: [NNSBComponentBusiness.MarketStrip] = [], selected: NNSBComponentBusiness.MarketPeriod = .tt)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchMarketFeature.State, b: NNSBComponentPresentation.MatchMarketFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable, Swift.Sendable {
+    case betTapped(NNSBComponentBusiness.BetSelection)
+    case replaceAll(NNSBComponentBusiness.MarketPeriod, [NNSBComponentBusiness.MarketStrip])
+    case replaceMarket(NNSBComponentBusiness.MarketPeriod, NNSBComponentBusiness.MarketStrip)
+    case updateOddsItem(NNSBComponentBusiness.MarketPeriod, marketId: NNSBComponentBusiness.MarketStrip.ID, item: NNSBComponentBusiness.OddsItem)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchMarketFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchMarketFeature.Action> {
+        get
+      }
+      public var betTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchMarketFeature.Action, NNSBComponentBusiness.BetSelection> {
+        get
+      }
+      public var replaceAll: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchMarketFeature.Action, (NNSBComponentBusiness.MarketPeriod, [NNSBComponentBusiness.MarketStrip])> {
+        get
+      }
+      public var replaceMarket: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchMarketFeature.Action, (NNSBComponentBusiness.MarketPeriod, NNSBComponentBusiness.MarketStrip)> {
+        get
+      }
+      public var updateOddsItem: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchMarketFeature.Action, (NNSBComponentBusiness.MarketPeriod, marketId: NNSBComponentBusiness.MarketStrip.ID, item: NNSBComponentBusiness.OddsItem)> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchMarketFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchMarketFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchMarketFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchMarketFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchMarketFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchMarketFeature.Action, b: NNSBComponentPresentation.MatchMarketFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchMarketFeature.State, NNSBComponentPresentation.MatchMarketFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchMarketFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchMarketFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation18MatchMarketFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchMarketFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public struct H2HStatsFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var h2hData: NNSBComponentBusiness.H2HData {
+      get
+      set
+      _modify
+    }
+    public init(h2hData: NNSBComponentBusiness.H2HData = H2HData(recentMatches: [], homeWins: 0, draws: 0, awayWins: 0))
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.H2HStatsFeature.State, b: NNSBComponentPresentation.H2HStatsFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case updateH2H(NNSBComponentBusiness.H2HData)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.H2HStatsFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.H2HStatsFeature.Action> {
+        get
+      }
+      public var updateH2H: CasePathsCore.AnyCasePath<NNSBComponentPresentation.H2HStatsFeature.Action, NNSBComponentBusiness.H2HData> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.H2HStatsFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.H2HStatsFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.H2HStatsFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.H2HStatsFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.H2HStatsFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.H2HStatsFeature.Action, b: NNSBComponentPresentation.H2HStatsFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.H2HStatsFeature.State, NNSBComponentPresentation.H2HStatsFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.H2HStatsFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15H2HStatsFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.H2HStatsFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.H2HStatsFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public struct QuickBetFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var betAmount: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var maxBetAmount: Swift.Double {
+      get
+      set
+      _modify
+    }
+    public var displayAmount: Swift.String {
+      get
+    }
+    public init(maxBetAmount: Swift.Double = 10_000_000)
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.QuickBetFeature.State, b: NNSBComponentPresentation.QuickBetFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case numberTapped(Swift.Int)
+    case doubleTapped
+    case backspaceTapped
+    case quickAmountTapped(Swift.Double)
+    case maxAmountTapped
+    case saveTapped
+    case closeTapped
+    case delegate(NNSBComponentPresentation.QuickBetFeature.Delegate)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.QuickBetFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.QuickBetFeature.Action> {
+        get
+      }
+      public var numberTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Int> {
+        get
+      }
+      public var doubleTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Void> {
+        get
+      }
+      public var backspaceTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Void> {
+        get
+      }
+      public var quickAmountTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Double> {
+        get
+      }
+      public var maxAmountTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Void> {
+        get
+      }
+      public var saveTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Void> {
+        get
+      }
+      public var closeTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, Swift.Void> {
+        get
+      }
+      public var delegate: CasePathsCore.AnyCasePath<NNSBComponentPresentation.QuickBetFeature.Action, NNSBComponentPresentation.QuickBetFeature.Delegate> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.QuickBetFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.QuickBetFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.QuickBetFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.QuickBetFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.QuickBetFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.QuickBetFeature.Action, b: NNSBComponentPresentation.QuickBetFeature.Action) -> Swift.Bool
+  }
+  public enum Delegate : Swift.Equatable {
+    case save(Swift.Double)
+    case close
+    public static func == (a: NNSBComponentPresentation.QuickBetFeature.Delegate, b: NNSBComponentPresentation.QuickBetFeature.Delegate) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.QuickBetFeature.State, NNSBComponentPresentation.QuickBetFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.QuickBetFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15QuickBetFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.QuickBetFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.QuickBetFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchMarketView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchMarketFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15MatchMarketViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct TeamLineupView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation14TeamLineupViewV4bodyQrvp", 0) __
+}
+public enum MarketGroup : Swift.Int, Swift.CaseIterable {
+  case main
+  case fullTime
+  case halfTime
+  case corner
+  case extra
+  case card
+  case timeMarket
+  case secondHalf
+  case other
+  case penalty
+  case set
+  case game
+  case quarter
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var title: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.Int)
+  #endif
+  public typealias AllCases = [NNSBComponentPresentation.MarketGroup]
+  public typealias RawValue = Swift.Int
+  nonisolated public static var allCases: [NNSBComponentPresentation.MarketGroup] {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public func displayTabName(for id: Swift.Int) -> Swift.String
+public struct MatchDetailMarketSet : Swift.Equatable {
+  public init(marketSet: NNSBComponentBusiness.EventV2MarketSet, isPinned: Swift.Bool)
+  public static func == (a: NNSBComponentPresentation.MatchDetailMarketSet, b: NNSBComponentPresentation.MatchDetailMarketSet) -> Swift.Bool
+}
+public struct MatchDetailBetTabsFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var selectedGroupId: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public var marketGroups: [Swift.Int] {
+      get
+      set
+      _modify
+    }
+    public var marketSets: [NNSBComponentBusiness.EventV2MarketSet] {
+      get
+      set
+      _modify
+    }
+    public var marketSetsPin: [NNSBComponentPresentation.MatchDetailMarketSet] {
+      get
+      set
+      _modify
+    }
+    public var homeTeamName: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var awayTeamName: Swift.String {
+      get
+      set
+      _modify
+    }
+    public let bettingWebviewURL: Swift.String?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var oddsChangeMap: [Swift.String : Swift.Bool?] {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var event: NNSBComponentBusiness.EventV2Event? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var leagueName: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var searchText: Swift.String {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(bettingWebviewURL: Swift.String? = nil, marketGroups: [Swift.Int] = [], marketSets: [NNSBComponentBusiness.EventV2MarketSet] = [], homeTeamName: Swift.String = "", awayTeamName: Swift.String = "", oddsChangeMap: [Swift.String : Swift.Bool?] = [:], event: NNSBComponentBusiness.EventV2Event? = nil, leagueName: Swift.String = "", searchText: Swift.String = "")
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchDetailBetTabsFeature.State, b: NNSBComponentPresentation.MatchDetailBetTabsFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case onAppear
+    case selectGroup(Swift.Int)
+    case searchTextChanged(Swift.String)
+    case syncMarketSets([NNSBComponentBusiness.EventV2MarketSet])
+    case betTapped(marketKind: NNSBComponentBusiness.MarketKind, selectionId: Swift.String)
+    case pinTapped(Swift.String)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchDetailBetTabsFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action> {
+        get
+      }
+      public var onAppear: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, Swift.Void> {
+        get
+      }
+      public var selectGroup: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, Swift.Int> {
+        get
+      }
+      public var searchTextChanged: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, Swift.String> {
+        get
+      }
+      public var syncMarketSets: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, [NNSBComponentBusiness.EventV2MarketSet]> {
+        get
+      }
+      public var betTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, (marketKind: NNSBComponentBusiness.MarketKind, selectionId: Swift.String)> {
+        get
+      }
+      public var pinTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, Swift.String> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailBetTabsFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchDetailBetTabsFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchDetailBetTabsFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchDetailBetTabsFeature.Action, b: NNSBComponentPresentation.MatchDetailBetTabsFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchDetailBetTabsFeature.State, NNSBComponentPresentation.MatchDetailBetTabsFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchDetailBetTabsFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation25MatchDetailBetTabsFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchDetailBetTabsFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchDetailBetTabsFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchDetailHeaderView : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchDetailHeaderFeature>, onToggleMediaFloating: (() -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation21MatchDetailHeaderViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct LiveStreamView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.LiveStreamFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation14LiveStreamViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct SBEmptyView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(iconName: Swift.String, iconSize: CoreFoundation.CGSize = .init(width: 120, height: 120), message: Swift.String, spacing: CoreFoundation.CGFloat = 12)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation11SBEmptyViewV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.SBEmptyView {
+  @_Concurrency.MainActor @preconcurrency public static func emptyBets() -> NNSBComponentPresentation.SBEmptyView
+  @_Concurrency.MainActor @preconcurrency public static func emptyMatchesSportLiveTab() -> NNSBComponentPresentation.SBEmptyView
+  @_Concurrency.MainActor @preconcurrency public static func emptyMatchesSportUpcomingTab() -> NNSBComponentPresentation.SBEmptyView
+}
+@_Concurrency.MainActor @preconcurrency public struct LeagueRowView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.LeagueFilterItemFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation13LeagueRowViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchBadgeRowView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let badges: [NNSBComponentBusiness.MatchBadge]
+  @_Concurrency.MainActor @preconcurrency public let onTap: (NNSBComponentBusiness.MatchBadgeKind) -> Swift.Void
+  @_Concurrency.MainActor @preconcurrency public init(badges: [NNSBComponentBusiness.MatchBadge], onTap: @escaping (NNSBComponentBusiness.MatchBadgeKind) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17MatchBadgeRowViewV4bodyQrvp", 0) __
+}
+public enum TicketScoreColorStyle {
+  case normal
+  case white
+  case custom(SwiftUICore.Color)
+  public var color: SwiftUICore.Color {
+    get
+  }
+}
+@_Concurrency.MainActor @preconcurrency public struct BetSelectionSummaryView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(betItem: NNSBComponentBusiness.BetItem, scoreColorStyle: NNSBComponentPresentation.TicketScoreColorStyle = .normal)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation23BetSelectionSummaryViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BetDistributionView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.BetDistributionFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation19BetDistributionViewV4bodyQrvp", 0) __
+}
+public struct TeamFCStatModel {
+  public let title: Swift.String
+  public let icon: Swift.String
+  public let stats: [NNSBComponentPresentation.StatBoxModel]
+  public init(title: Swift.String, icon: Swift.String, stats: [NNSBComponentPresentation.StatBoxModel])
+}
+public struct StatBoxModel {
+  public let value: Swift.String
+  public let type: NNSBComponentPresentation.StatBoxModel.StatType
+  public let direction: NNSBComponentPresentation.StatBoxModel.StatDirection
+  public enum StatType {
+    case flag(icon: Swift.String, iconColor: SwiftUICore.Color)
+    case card(color: SwiftUICore.Color)
+  }
+  public enum StatDirection {
+    case normal
+    case reversed
+    public static func == (a: NNSBComponentPresentation.StatBoxModel.StatDirection, b: NNSBComponentPresentation.StatBoxModel.StatDirection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public init(value: Swift.String, type: NNSBComponentPresentation.StatBoxModel.StatType, direction: NNSBComponentPresentation.StatBoxModel.StatDirection)
+}
+public struct MatchHeaderModel : Swift.Equatable {
+  public var headerLabel: Swift.String
+  public var timeLabel: Swift.String
+  public var scoreLabel: Swift.String
+  public var teamHome: NNSBComponentPresentation.TeamStateModel
+  public var teamAway: NNSBComponentPresentation.TeamStateModel
+  public var winRate: NNSBComponentPresentation.WinRate
+  public init(headerLabel: Swift.String = "", timeLabel: Swift.String = "", scoreLabel: Swift.String = "", teamHome: NNSBComponentPresentation.TeamStateModel = TeamStateModel(), teamAway: NNSBComponentPresentation.TeamStateModel = TeamStateModel(), winRate: NNSBComponentPresentation.WinRate = WinRate(home: 0.33, draw: 0.34, away: 0.33))
+  public static func == (a: NNSBComponentPresentation.MatchHeaderModel, b: NNSBComponentPresentation.MatchHeaderModel) -> Swift.Bool
+}
+public struct WinRate : Swift.Equatable {
+  public var home: Swift.Double
+  public var draw: Swift.Double
+  public var away: Swift.Double
+  public init(home: Swift.Double, draw: Swift.Double, away: Swift.Double)
+  public static func == (a: NNSBComponentPresentation.WinRate, b: NNSBComponentPresentation.WinRate) -> Swift.Bool
+}
+public func winRateFromDecimal(home: Swift.Double, draw: Swift.Double, away: Swift.Double) -> NNSBComponentPresentation.WinRate
+#if compiler(>=5.3) && $NonescapableTypes
+public func makeWinRate(from match: NNSBComponentBusiness.MatchEntity) -> NNSBComponentPresentation.WinRate?
+#endif
+public struct TeamStateModel : Swift.Equatable {
+  public var name: Swift.String
+  public var score: Swift.String
+  public var redCard: Swift.String
+  public var yellowCard: Swift.String
+  public var flagCard: Swift.String
+  public var logo: Swift.String
+  public init(name: Swift.String = "", score: Swift.String = "", redCard: Swift.String = "", yellowCard: Swift.String = "", flagCard: Swift.String = "", logo: Swift.String = "")
+  public static func == (a: NNSBComponentPresentation.TeamStateModel, b: NNSBComponentPresentation.TeamStateModel) -> Swift.Bool
+}
+public struct MatchFooterModel : Swift.Equatable {
+  public var headerLabel: Swift.String
+  public var betOption: [NNSBComponentPresentation.MatchBetModel]
+  public var matchEntity: NNSBComponentBusiness.MatchEntity?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(headerLabel: Swift.String = "", betOption: [NNSBComponentPresentation.MatchBetModel] = [MatchBetModel](), matchEntity: NNSBComponentBusiness.MatchEntity? = nil)
+  #endif
+  public static func == (a: NNSBComponentPresentation.MatchFooterModel, b: NNSBComponentPresentation.MatchFooterModel) -> Swift.Bool
+}
+public struct MatchBetModel : Swift.Equatable {
+  public var title: Swift.String
+  public var betInfo: [NNSBComponentBusiness.BetsInfo]
+  public static func == (a: NNSBComponentPresentation.MatchBetModel, b: NNSBComponentPresentation.MatchBetModel) -> Swift.Bool
+}
+public struct MatchStatsFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var stats: NNSBComponentBusiness.MatchStats {
+      get
+      set
+      _modify
+    }
+    public init(stats: NNSBComponentBusiness.MatchStats = MatchStats())
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchStatsFeature.State, b: NNSBComponentPresentation.MatchStatsFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case updateStats(NNSBComponentBusiness.MatchStats)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchStatsFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchStatsFeature.Action> {
+        get
+      }
+      public var updateStats: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchStatsFeature.Action, NNSBComponentBusiness.MatchStats> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchStatsFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchStatsFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchStatsFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchStatsFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchStatsFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchStatsFeature.Action, b: NNSBComponentPresentation.MatchStatsFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchStatsFeature.State, NNSBComponentPresentation.MatchStatsFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchStatsFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17MatchStatsFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchStatsFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchStatsFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct SwitchableView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.SwitchableFeature>
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.SwitchableFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation14SwitchableViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct AppLifecycleViewModifier : SwiftUICore.ViewModifier {
+  @_Concurrency.MainActor @preconcurrency public func body(content: NNSBComponentPresentation.AppLifecycleViewModifier.Content) -> some SwiftUICore.View
+  
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation24AppLifecycleViewModifierV4body7contentQr7SwiftUI01_eF8_ContentVyACG_tF", 0) __
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func onAppLifecycle(onActive: @escaping () -> Swift.Void, onBackground: @escaping () -> Swift.Void) -> some SwiftUICore.View
+  
+}
+@_hasMissingDesignatedInitializers final public class FloatingOverlayMediaPresenter : @unchecked Swift.Sendable {
+  public static let shared: NNSBComponentPresentation.FloatingOverlayMediaPresenter
+  final public func sendBehindBetSlip()
+  final public func restoreWindowLevel()
+  final public func present()
+  final public func show()
+  final public func hide()
+  final public func dismiss()
+  public static let openMatchDetailNotification: Foundation.Notification.Name
+  public struct MatchDetailRoute : Swift.Hashable {
+    public let matchId: Swift.Int
+    public let leagueId: Swift.Int
+    public let sportId: Swift.Int
+    public let eventStatsId: Swift.Int64?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(matchId: Swift.Int, leagueId: Swift.Int, sportId: Swift.Int, eventStatsId: Swift.Int64?)
+    #endif
+    public static func == (a: NNSBComponentPresentation.FloatingOverlayMediaPresenter.MatchDetailRoute, b: NNSBComponentPresentation.FloatingOverlayMediaPresenter.MatchDetailRoute) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func openMatchDetail(matchId: Swift.Int, leagueId: Swift.Int, sportId: Swift.Int, eventStatsId: Swift.Int64?)
+  #endif
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct EachGameTabFilterView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.EachGameTabFilterFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation21EachGameTabFilterViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchAnalyticsWebView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(urlString: Swift.String, height: SwiftUICore.Binding<CoreFoundation.CGFloat>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation21MatchAnalyticsWebViewV4bodyQrvp", 0) __
+}
+public struct BetCardListFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var bets: [NNSBComponentBusiness.UserBet] {
+      get
+      set
+      _modify
+    }
+    public var selectedBetType: NNSBComponentBusiness.TopBetType {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var event: NNSBComponentBusiness.EventV2Event? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var leagueName: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var currentMarketSets: [NNSBComponentBusiness.EventV2MarketSet] {
+      get
+      set
+      _modify
+    }
+    public var filteredBets: [NNSBComponentBusiness.UserBet] {
+      get
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(bets: [NNSBComponentBusiness.UserBet] = [], selectedBetType: NNSBComponentBusiness.TopBetType = .newest, event: NNSBComponentBusiness.EventV2Event? = nil, leagueName: Swift.String = "", currentMarketSets: [NNSBComponentBusiness.EventV2MarketSet] = [])
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.BetCardListFeature.State, b: NNSBComponentPresentation.BetCardListFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case updateBets([NNSBComponentBusiness.UserBet])
+    case updateSelectedType(NNSBComponentBusiness.TopBetType)
+    case followBet(Swift.String)
+    case syncFollowContext(event: NNSBComponentBusiness.EventV2Event?, leagueName: Swift.String)
+    case syncMarketSets([NNSBComponentBusiness.EventV2MarketSet])
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.BetCardListFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetCardListFeature.Action> {
+        get
+      }
+      public var updateBets: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetCardListFeature.Action, [NNSBComponentBusiness.UserBet]> {
+        get
+      }
+      public var updateSelectedType: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetCardListFeature.Action, NNSBComponentBusiness.TopBetType> {
+        get
+      }
+      public var followBet: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetCardListFeature.Action, Swift.String> {
+        get
+      }
+      #if compiler(>=5.3) && $NonescapableTypes
+      public var syncFollowContext: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetCardListFeature.Action, (event: NNSBComponentBusiness.EventV2Event?, leagueName: Swift.String)> {
+        get
+      }
+      #endif
+      public var syncMarketSets: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetCardListFeature.Action, [NNSBComponentBusiness.EventV2MarketSet]> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetCardListFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetCardListFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetCardListFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.BetCardListFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.BetCardListFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.BetCardListFeature.Action, b: NNSBComponentPresentation.BetCardListFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.BetCardListFeature.State, NNSBComponentPresentation.BetCardListFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.BetCardListFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation18BetCardListFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.BetCardListFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.BetCardListFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public enum SBResultToastStyle : Swift.Equatable, Swift.Sendable {
+  case loading
+  case success
+  case error
+  public var background: SwiftUICore.Color {
+    get
+  }
+  public var iconName: Swift.String {
+    get
+  }
+  public var iconTint: SwiftUICore.Color {
+    get
+  }
+  public var textTint: SwiftUICore.Color {
+    get
+  }
+  public static func == (a: NNSBComponentPresentation.SBResultToastStyle, b: NNSBComponentPresentation.SBResultToastStyle) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct SBResultToastState : Swift.Equatable, Swift.Sendable {
+  public let style: NNSBComponentPresentation.SBResultToastStyle
+  public let message: Swift.String
+  public init(style: NNSBComponentPresentation.SBResultToastStyle, message: Swift.String)
+  public static func == (a: NNSBComponentPresentation.SBResultToastState, b: NNSBComponentPresentation.SBResultToastState) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct SBResultToastView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let state: NNSBComponentPresentation.SBResultToastState
+  @_Concurrency.MainActor @preconcurrency public init(state: NNSBComponentPresentation.SBResultToastState)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17SBResultToastViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct StatusTagView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(status: NNSBComponentBusiness.HistoryStatus)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation13StatusTagViewV4bodyQrvp", 0) __
+}
+extension Swift.AnyHashable : @unchecked Swift.Sendable {
+}
+public struct WebSocketScreenLifecycleHelper<State, Action> {
+  public var isEnabled: (State) -> Swift.Bool
+  public var getLastBackgroundAt: (State) -> Foundation.Date?
+  public var setLastBackgroundAt: (inout State, Foundation.Date?) -> Swift.Void
+  public var getIsRefreshing: (State) -> Swift.Bool
+  public var setIsRefreshing: (inout State, Swift.Bool) -> Swift.Void
+  public var cancelIDsOnBackground: [Swift.AnyHashable]
+  public var unsubscribe: (State) -> ComposableArchitecture.Effect<Action>
+  public var subscribe: (State) -> ComposableArchitecture.Effect<Action>
+  public var refresh: (State) -> ComposableArchitecture.Effect<Action>
+  public var wsReconnect: (() -> ComposableArchitecture.Effect<Action>)?
+  public var refreshThreshold: Swift.Double
+  public var shouldRefreshOnActive: (State, _ elapsed: Foundation.TimeInterval?, _ threshold: Foundation.TimeInterval) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(isEnabled: @escaping (State) -> Swift.Bool, getLastBackgroundAt: @escaping (State) -> Foundation.Date?, setLastBackgroundAt: @escaping (inout State, Foundation.Date?) -> Swift.Void, getIsRefreshing: @escaping (State) -> Swift.Bool, setIsRefreshing: @escaping (inout State, Swift.Bool) -> Swift.Void, cancelIDsOnBackground: [Swift.AnyHashable], unsubscribe: @escaping (State) -> ComposableArchitecture.Effect<Action>, subscribe: @escaping (State) -> ComposableArchitecture.Effect<Action>, refresh: @escaping (State) -> ComposableArchitecture.Effect<Action>, wsReconnect: (() -> ComposableArchitecture.Effect<Action>)? = nil, refreshThreshold: Foundation.TimeInterval = 30)
+  #endif
+  public func onEnterBackground(state: inout State) -> ComposableArchitecture.Effect<Action>
+  public func onBecomeActive(state: inout State) -> ComposableArchitecture.Effect<Action>
+  public func stopRefreshing(state: inout State)
+}
+public struct VoucherViewModel : NNSBComponentBusiness.VoucherViewModelProtocol, Swift.Codable, Swift.Equatable, Swift.Identifiable {
+  public var id: Swift.String
+  public var text: Swift.String
+  public var description: Swift.String
+  public var amount: Swift.Int
+  public var date: Swift.String
+  public var used: Swift.Int
+  public var turnover: Swift.Double
+  public var isSelected: Swift.Bool
+  public var isCollapsed: Swift.Bool
+  public init(id: Swift.String, text: Swift.String, description: Swift.String, amount: Swift.Int, date: Swift.String, used: Swift.Int, turnover: Swift.Double, isSelected: Swift.Bool, isCollapsed: Swift.Bool = false)
+  public static func == (a: NNSBComponentPresentation.VoucherViewModel, b: NNSBComponentPresentation.VoucherViewModel) -> Swift.Bool
+  public typealias ID = Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VoucherFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public static func == (lhs: NNSBComponentPresentation.VoucherFeature.State, rhs: NNSBComponentPresentation.VoucherFeature.State) -> Swift.Bool
+    public var vouchers: [any NNSBComponentBusiness.VoucherViewModelProtocol] {
+      get
+      set
+      _modify
+    }
+    public var isApplyEnabled: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public var showPushNavigationBar: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public init(vouchers: [any NNSBComponentBusiness.VoucherViewModelProtocol] = [], isApplyEnabled: Swift.Bool = false, showPushNavigationBar: Swift.Bool = true)
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+  }
+  public enum Action : Swift.Equatable {
+    case onAppear
+    case close
+    case apply
+    case toggleVoucher(id: Swift.String)
+    case didTapVoucher(id: Swift.String)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.VoucherFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.VoucherFeature.Action> {
+        get
+      }
+      public var onAppear: CasePathsCore.AnyCasePath<NNSBComponentPresentation.VoucherFeature.Action, Swift.Void> {
+        get
+      }
+      public var close: CasePathsCore.AnyCasePath<NNSBComponentPresentation.VoucherFeature.Action, Swift.Void> {
+        get
+      }
+      public var apply: CasePathsCore.AnyCasePath<NNSBComponentPresentation.VoucherFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleVoucher: CasePathsCore.AnyCasePath<NNSBComponentPresentation.VoucherFeature.Action, Swift.String> {
+        get
+      }
+      public var didTapVoucher: CasePathsCore.AnyCasePath<NNSBComponentPresentation.VoucherFeature.Action, Swift.String> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.VoucherFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.VoucherFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.VoucherFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.VoucherFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.VoucherFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.VoucherFeature.Action, b: NNSBComponentPresentation.VoucherFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.VoucherFeature.State, NNSBComponentPresentation.VoucherFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.VoucherFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.VoucherFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+extension NNSBComponentPresentation.VoucherFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation14VoucherFeatureV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct HistoryCardView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(item: NNSBComponentBusiness.BetItem, onSelectBetAgain: @escaping () -> Swift.Void = {}, onShare: @escaping () -> Swift.Void = {})
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15HistoryCardViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct BetTypeIconView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(item: NNSBComponentBusiness.BetItem)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15BetTypeIconViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct TicketSelectionRow : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(index: Swift.Int, selection: NNSBComponentBusiness.BetItem, isInCombo: Swift.Bool, onToggle: @escaping () -> Swift.Void, onRemove: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation18TicketSelectionRowV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct VoucherView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.VoucherFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation11VoucherViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct TabMatchView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public var model: NNSBComponentPresentation.MatchFooterModel
+  @_Concurrency.MainActor @preconcurrency public init(model: NNSBComponentPresentation.MatchFooterModel, onTapOption: @escaping (NNSBComponentBusiness.OddsOption) -> Swift.Void, matchLeagueId: Swift.Int)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation12TabMatchViewV4bodyQrvp", 0) __
+}
+public struct OddsTab : Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public let title: Swift.String
+  public var model: NNSBComponentPresentation.MatchFooterModel?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(title: Swift.String, model: NNSBComponentPresentation.MatchFooterModel? = nil)
+  #endif
+  public typealias ID = Swift.String
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchDetailView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchDetailFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15MatchDetailViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct SegmentedCapsulePicker : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let items: [NNSBComponentPresentation.SegmentedItem]
+  @_Concurrency.MainActor @preconcurrency public let font: SwiftUICore.Font
+  @_Concurrency.MainActor @preconcurrency public let isTransparent: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public let backgroundColor: SwiftUICore.Color
+  @_Concurrency.MainActor @preconcurrency public var parentBackgroundColor: SwiftUICore.Color
+  @_Concurrency.MainActor @preconcurrency public let foregroundColor: SwiftUICore.Color
+  @_Concurrency.MainActor @preconcurrency public let selectedMode: NNSBComponentPresentation.SegmentedSelectedMode
+  @SwiftUICore.Binding @_projectedValueProperty($selectedIndex) @_Concurrency.MainActor @preconcurrency public var selectedIndex: Swift.Int {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    nonmutating set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    nonmutating _modify
+  }
+  @_Concurrency.MainActor @preconcurrency public var $selectedIndex: SwiftUICore.Binding<Swift.Int> {
+    get
+  }
+  @_Concurrency.MainActor @preconcurrency public init(items: [NNSBComponentPresentation.SegmentedItem], font: SwiftUICore.Font, isTransparent: Swift.Bool, backgroundColor: SwiftUICore.Color, parentBackgroundColor: SwiftUICore.Color, foregroundColor: SwiftUICore.Color, selectedMode: NNSBComponentPresentation.SegmentedSelectedMode, selectedIndex: SwiftUICore.Binding<Swift.Int>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation22SegmentedCapsulePickerV4bodyQrvp", 0) __
+}
+public struct SegmentedItem : Swift.Identifiable, Swift.Hashable {
+  public var id: Swift.String {
+    get
+  }
+  public let title: Swift.String
+  public let iconName: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(title: Swift.String, iconName: Swift.String? = nil)
+  #endif
+  public static func == (a: NNSBComponentPresentation.SegmentedItem, b: NNSBComponentPresentation.SegmentedItem) -> Swift.Bool
+  public typealias ID = Swift.String
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum SegmentedSelectedMode {
+  case fill
+  case line
+  public static func == (a: NNSBComponentPresentation.SegmentedSelectedMode, b: NNSBComponentPresentation.SegmentedSelectedMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct LeagueTableFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var standings: [NNSBComponentBusiness.LeagueStanding] {
+      get
+      set
+      _modify
+    }
+    public var homeTeamId: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public var awayTeamId: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public init(standings: [NNSBComponentBusiness.LeagueStanding] = [], homeTeamId: Swift.Int, awayTeamId: Swift.Int)
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.LeagueTableFeature.State, b: NNSBComponentPresentation.LeagueTableFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case updateStandings([NNSBComponentBusiness.LeagueStanding])
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.LeagueTableFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueTableFeature.Action> {
+        get
+      }
+      public var updateStandings: CasePathsCore.AnyCasePath<NNSBComponentPresentation.LeagueTableFeature.Action, [NNSBComponentBusiness.LeagueStanding]> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueTableFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueTableFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueTableFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.LeagueTableFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.LeagueTableFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.LeagueTableFeature.Action, b: NNSBComponentPresentation.LeagueTableFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.LeagueTableFeature.State, NNSBComponentPresentation.LeagueTableFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.LeagueTableFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation18LeagueTableFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.LeagueTableFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.LeagueTableFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public struct MatchDetailFeature : ComposableArchitecture.Reducer, @unchecked Swift.Sendable {
+  public struct State : Swift.Equatable {
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var leagueId: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var matchId: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var accessToken: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var leagueMatchId: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var matchData: NNSBComponentBusiness.MatchEntity? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var streamLink: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var webLink: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var headerModel: NNSBComponentPresentation.MatchHeaderModel {
+      get
+      set
+      _modify
+    }
+    public var footerModel: NNSBComponentPresentation.MatchFooterModel {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var matchDetail: NNSBComponentBusiness.EventEntities? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var betItem: NNSBComponentBusiness.BetItem? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var voucherViewModels: [NNSBComponentPresentation.VoucherViewModel] {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var vouchersStore: NNSBComponentPresentation.VoucherFeature.State? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(leagueId: Swift.Int? = nil, matchId: Swift.Int? = nil, accessToken: Swift.String? = nil, leagueMatchId: Swift.String? = nil, matchData: NNSBComponentBusiness.MatchEntity? = nil, streamLink: Swift.String? = nil, webLink: Swift.String? = nil, headerModel: NNSBComponentPresentation.MatchHeaderModel = MatchHeaderModel(), footerModel: NNSBComponentPresentation.MatchFooterModel = MatchFooterModel(), matchDetail: NNSBComponentBusiness.EventEntities? = nil, betItem: NNSBComponentBusiness.BetItem? = nil, voucherViewModels: [NNSBComponentPresentation.VoucherViewModel] = [], vouchersStore: NNSBComponentPresentation.VoucherFeature.State? = nil)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchDetailFeature.State, b: NNSBComponentPresentation.MatchDetailFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case onApear
+    case responseMatchDetail(ComposableArchitecture.TaskResult<NNSBComponentBusiness.EventEntities>)
+    case responseLiveLink(ComposableArchitecture.TaskResult<NNSBComponentBusiness.LiveLinkItem>)
+    case delegate(NNSBComponentPresentation.MatchDetailFeature.Action.MatchDetailDelegate)
+    case sendFavoriteRequest(eventId: Swift.Int?, leagueId: Swift.Int?, sportId: Swift.Int?, isFavorited: Swift.Bool)
+    case addFavoriteMatch(leagueId: Swift.Int?, matchId: Swift.Int?, isFavorited: Swift.Bool)
+    case removeFavoriteMatch(leagueId: Swift.Int?, matchId: Swift.Int?, isFavorited: Swift.Bool)
+    case oddsDidUpdate([NNSBComponentBusiness.KafkaOdds])
+    case matchStatusDidUpdate(matchId: Swift.Int)
+    case returnEmpty
+    case voucherTicketTab
+    case voucherTicketCancelTab
+    case voucher(NNSBComponentPresentation.VoucherFeature.Action)
+    case dismissVoucher
+    public enum MatchDetailDelegate : Swift.Equatable {
+      case openBets(NNSBComponentBusiness.BetItem, NNSBComponentBusiness.EventEntities, NNSBComponentBusiness.MatchEntity)
+      case dismiss
+      public static func == (a: NNSBComponentPresentation.MatchDetailFeature.Action.MatchDetailDelegate, b: NNSBComponentPresentation.MatchDetailFeature.Action.MatchDetailDelegate) -> Swift.Bool
+    }
+    public static func == (a: NNSBComponentPresentation.MatchDetailFeature.Action, b: NNSBComponentPresentation.MatchDetailFeature.Action) -> Swift.Bool
+  }
+  public init()
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchDetailFeature.State, NNSBComponentPresentation.MatchDetailFeature.Action> {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation18MatchDetailFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchDetailFeature.State : Swift.Identifiable {
+  public var id: Swift.Int {
+    get
+  }
+  public typealias ID = Swift.Int
+}
+extension NNSBComponentPresentation.MatchDetailFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchDetailBetTabsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchDetailBetTabsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation22MatchDetailBetTabsViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchDetailBetMarketsContentView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchDetailBetTabsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation32MatchDetailBetMarketsContentViewV4bodyQrvp", 0) __
+}
+public struct FavoriteMatchList : Swift.Equatable, Swift.Identifiable {
+  public var id: Swift.String {
+    get
+  }
+  public let matchEntity: NNSBComponentBusiness.MatchEntity
+  public let leagueEntity: NNSBComponentBusiness.EventEntities
+  public init(matchEntity: NNSBComponentBusiness.MatchEntity, leagueEntity: NNSBComponentBusiness.EventEntities)
+  public static func == (a: NNSBComponentPresentation.FavoriteMatchList, b: NNSBComponentPresentation.FavoriteMatchList) -> Swift.Bool
+  public typealias ID = Swift.String
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchTimeAndLikeView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchTimeAndLikeFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation20MatchTimeAndLikeViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct TeamRowView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(team: NNSBComponentPresentation.MatchTeam)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation11TeamRowViewV4bodyQrvp", 0) __
+}
+public struct MatchV2DetailFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public let matchId: Swift.Int
+    public let leagueId: Swift.Int
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var sportId: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var header: NNSBComponentPresentation.MatchDetailHeaderFeature.State {
+      get
+      set
+      _modify
+    }
+    public var tabs: NNSBComponentPresentation.MatchDetailTabsFeature.State {
+      get
+      set
+      _modify
+    }
+    public var betTabs: NNSBComponentPresentation.MatchDetailBetTabsFeature.State {
+      get
+      set
+      _modify
+    }
+    public var stats: NNSBComponentPresentation.MatchStatsFeature.State {
+      get
+      set
+      _modify
+    }
+    public var events: NNSBComponentPresentation.MatchEventsFeature.State {
+      get
+      set
+      _modify
+    }
+    public var lineup: NNSBComponentPresentation.TeamLineupFeature.State {
+      get
+      set
+      _modify
+    }
+    public var h2h: NNSBComponentPresentation.H2HStatsFeature.State {
+      get
+      set
+      _modify
+    }
+    public var leagueTable: NNSBComponentPresentation.LeagueTableFeature.State {
+      get
+      set
+      _modify
+    }
+    public var topBetsDistribution: NNSBComponentPresentation.BetDistributionFeature.State {
+      get
+      set
+      _modify
+    }
+    public var topBetTabs: NNSBComponentPresentation.TopBetTabsFeature.State {
+      get
+      set
+      _modify
+    }
+    public var topBetsList: NNSBComponentPresentation.BetCardListFeature.State {
+      get
+      set
+      _modify
+    }
+    public var isLoading: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var errorMessage: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var lastBackgroundAt: Foundation.Date? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var isRefreshing: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public var isVisible: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var bettingWebviewURL: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var isMatchEnded: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public var $quickBetStore: ComposableArchitecture.PresentationState<NNSBComponentPresentation.QuickBetFeature.State> {
+      get
+      set
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var quickBetStore: NNSBComponentPresentation.QuickBetFeature.State? {
+      get
+      set
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var streamLink: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var webLink: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var topPerformerStatistics: NNSBComponentBusiness.BetDistribution? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var initialMatchInfoWasNil: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(matchId: Swift.Int, leagueId: Swift.Int, sportId: Swift.Int? = nil, matchInfo: NNSBComponentBusiness.MatchDetailInfo? = nil, eventStatsId: Swift.Int64? = nil, hasLiveStream: Swift.Bool = true, hasWebStream: Swift.Bool = true)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchV2DetailFeature.State, b: NNSBComponentPresentation.MatchV2DetailFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case onAppear
+    case onDisappear
+    case retry
+    case matchDetailLoaded(Swift.Result<NNSBComponentBusiness.EventV2League, any Swift.Error>)
+    case loadTopBet
+    case responseLiveLink(ComposableArchitecture.TaskResult<NNSBComponentBusiness.LiveLinkItem>)
+    case responseCopyBetUsersDetails(ComposableArchitecture.TaskResult<[NNSBComponentBusiness.UserBet]>)
+    case responseTopPerformerStatistics(ComposableArchitecture.TaskResult<NNSBComponentBusiness.BetDistribution>)
+    case favoriteResponse(Swift.Bool)
+    case websocketEvent(NNSBComponentBusiness.WebSocketRecieveMessage)
+    case header(NNSBComponentPresentation.MatchDetailHeaderFeature.Action)
+    case tabs(NNSBComponentPresentation.MatchDetailTabsFeature.Action)
+    case betTabs(NNSBComponentPresentation.MatchDetailBetTabsFeature.Action)
+    case stats(NNSBComponentPresentation.MatchStatsFeature.Action)
+    case events(NNSBComponentPresentation.MatchEventsFeature.Action)
+    case lineup(NNSBComponentPresentation.TeamLineupFeature.Action)
+    case h2h(NNSBComponentPresentation.H2HStatsFeature.Action)
+    case leagueTable(NNSBComponentPresentation.LeagueTableFeature.Action)
+    case topBetsDistribution(NNSBComponentPresentation.BetDistributionFeature.Action)
+    case topBetTabs(NNSBComponentPresentation.TopBetTabsFeature.Action)
+    case topBetsList(NNSBComponentPresentation.BetCardListFeature.Action)
+    case presentQuickBet
+    case quickBet(ComposableArchitecture.PresentationAction<NNSBComponentPresentation.QuickBetFeature.Action>)
+    case dismissQuickBet
+    case appDidBecomeActive
+    case appDidEnterBackground
+    case delegate(NNSBComponentPresentation.MatchV2DetailFeature.Action.Delegate)
+    public enum Delegate : Swift.Equatable {
+      case didTapQuickBet
+      public static func == (a: NNSBComponentPresentation.MatchV2DetailFeature.Action.Delegate, b: NNSBComponentPresentation.MatchV2DetailFeature.Action.Delegate) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public static func == (lhs: NNSBComponentPresentation.MatchV2DetailFeature.Action, rhs: NNSBComponentPresentation.MatchV2DetailFeature.Action) -> Swift.Bool
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchV2DetailFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchV2DetailFeature.Action> {
+        get
+      }
+      public var onAppear: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var onDisappear: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var retry: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      #if compiler(>=5.3) && $NonescapableTypes
+      public var matchDetailLoaded: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Result<NNSBComponentBusiness.EventV2League, any Swift.Error>> {
+        get
+      }
+      #endif
+      public var loadTopBet: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var responseLiveLink: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, ComposableArchitecture.TaskResult<NNSBComponentBusiness.LiveLinkItem>> {
+        get
+      }
+      public var responseCopyBetUsersDetails: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, ComposableArchitecture.TaskResult<[NNSBComponentBusiness.UserBet]>> {
+        get
+      }
+      public var responseTopPerformerStatistics: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, ComposableArchitecture.TaskResult<NNSBComponentBusiness.BetDistribution>> {
+        get
+      }
+      public var favoriteResponse: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Bool> {
+        get
+      }
+      public var websocketEvent: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentBusiness.WebSocketRecieveMessage> {
+        get
+      }
+      public var header: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.MatchDetailHeaderFeature.Action> {
+        get
+      }
+      public var tabs: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.MatchDetailTabsFeature.Action> {
+        get
+      }
+      public var betTabs: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.MatchDetailBetTabsFeature.Action> {
+        get
+      }
+      public var stats: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.MatchStatsFeature.Action> {
+        get
+      }
+      public var events: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.MatchEventsFeature.Action> {
+        get
+      }
+      public var lineup: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.TeamLineupFeature.Action> {
+        get
+      }
+      public var h2h: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.H2HStatsFeature.Action> {
+        get
+      }
+      public var leagueTable: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.LeagueTableFeature.Action> {
+        get
+      }
+      public var topBetsDistribution: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.BetDistributionFeature.Action> {
+        get
+      }
+      public var topBetTabs: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.TopBetTabsFeature.Action> {
+        get
+      }
+      public var topBetsList: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.BetCardListFeature.Action> {
+        get
+      }
+      public var presentQuickBet: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var quickBet: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, ComposableArchitecture.PresentationAction<NNSBComponentPresentation.QuickBetFeature.Action>> {
+        get
+      }
+      public var dismissQuickBet: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var appDidBecomeActive: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var appDidEnterBackground: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, Swift.Void> {
+        get
+      }
+      public var delegate: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchV2DetailFeature.Action, NNSBComponentPresentation.MatchV2DetailFeature.Action.Delegate> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchV2DetailFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchV2DetailFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchV2DetailFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchV2DetailFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchV2DetailFeature.Action.AllCasePaths {
+      get
+    }
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchV2DetailFeature.State, NNSBComponentPresentation.MatchV2DetailFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchV2DetailFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+extension NNSBComponentPresentation.MatchV2DetailFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation20MatchV2DetailFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchV2DetailFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+public struct MatchCardFullFeature {
+  public init()
+  public struct State : Swift.Equatable, Swift.Identifiable {
+    public let id: Swift.Int
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var event: NNSBComponentBusiness.EventV2Event? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var sportId: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public var leagueId: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public var leagueName: Swift.String {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var leagueLogoURL: Foundation.URL? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var eventStatsId: Swift.Int64? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var timeAndLike: NNSBComponentPresentation.MatchTimeAndLikeFeature.State {
+      get
+      set
+      _modify
+    }
+    public var home: NNSBComponentPresentation.MatchTeam {
+      get
+      set
+      _modify
+    }
+    public var away: NNSBComponentPresentation.MatchTeam {
+      get
+      set
+      _modify
+    }
+    public var matchMarket: NNSBComponentPresentation.MatchMarketFeature.State {
+      get
+      set
+      _modify
+    }
+    public var matchBadges: [NNSBComponentBusiness.MatchBadge] {
+      get
+      set
+      _modify
+    }
+    public var marketsFingerprint: Swift.Int {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var setScoreBoard: NNSBComponentPresentation.MatchSetScoreBoard? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(id: Swift.Int, event: NNSBComponentBusiness.EventV2Event? = nil, sportId: Swift.Int = 0, leagueId: Swift.Int = 0, leagueName: Swift.String = "", leagueLogoURL: Foundation.URL? = nil, eventStatsId: Swift.Int64? = nil, timeAndLike: NNSBComponentPresentation.MatchTimeAndLikeFeature.State = MatchTimeAndLikeFeature.State(), home: NNSBComponentPresentation.MatchTeam = MatchTeam(iconURL: nil,  name: "Manchester United", score: 0), away: NNSBComponentPresentation.MatchTeam = MatchTeam(iconURL: nil, name: "Manchester City", score: 0), matchMarket: NNSBComponentPresentation.MatchMarketFeature.State = MatchMarketFeature.State(), matchBadges: [NNSBComponentBusiness.MatchBadge] = [], marketsFingerprint: Swift.Int = 0, setScoreBoard: NNSBComponentPresentation.MatchSetScoreBoard? = nil)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchCardFullFeature.State, b: NNSBComponentPresentation.MatchCardFullFeature.State) -> Swift.Bool
+    public typealias ID = Swift.Int
+  }
+  public enum Action : Swift.Equatable {
+    case onAppear
+    case timeAndLike(NNSBComponentPresentation.MatchTimeAndLikeFeature.Action)
+    case setTeams(home: NNSBComponentPresentation.MatchTeam, away: NNSBComponentPresentation.MatchTeam)
+    case setHomeScore(Swift.Int)
+    case setAwayScore(Swift.Int)
+    case matchMarket(NNSBComponentPresentation.MatchMarketFeature.Action)
+    case onBadgeTapped(NNSBComponentBusiness.MatchBadgeKind)
+    case onCardTapped
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchCardFullFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchCardFullFeature.Action> {
+        get
+      }
+      public var onAppear: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, Swift.Void> {
+        get
+      }
+      public var timeAndLike: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, NNSBComponentPresentation.MatchTimeAndLikeFeature.Action> {
+        get
+      }
+      public var setTeams: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, (home: NNSBComponentPresentation.MatchTeam, away: NNSBComponentPresentation.MatchTeam)> {
+        get
+      }
+      public var setHomeScore: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, Swift.Int> {
+        get
+      }
+      public var setAwayScore: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, Swift.Int> {
+        get
+      }
+      public var matchMarket: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, NNSBComponentPresentation.MatchMarketFeature.Action> {
+        get
+      }
+      public var onBadgeTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, NNSBComponentBusiness.MatchBadgeKind> {
+        get
+      }
+      public var onCardTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchCardFullFeature.Action, Swift.Void> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchCardFullFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchCardFullFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchCardFullFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchCardFullFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchCardFullFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchCardFullFeature.Action, b: NNSBComponentPresentation.MatchCardFullFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchCardFullFeature.State, NNSBComponentPresentation.MatchCardFullFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchCardFullFeature.State {
+  public mutating func applyLiveUpdate(from event: NNSBComponentBusiness.EventV2Event)
+}
+extension NNSBComponentPresentation.MatchCardFullFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchCardFullFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation20MatchCardFullFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchCardFullFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchV2DetailView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchV2DetailFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17MatchV2DetailViewV4bodyQrvp", 0) __
+}
+public struct ScrollOffsetPreferenceKey : SwiftUICore.PreferenceKey {
+  nonisolated(unsafe) public static var defaultValue: CoreFoundation.CGFloat
+  public static func reduce(value: inout CoreFoundation.CGFloat, nextValue: () -> CoreFoundation.CGFloat)
+  public typealias Value = CoreFoundation.CGFloat
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchStatsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchStatsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation14MatchStatsViewV4bodyQrvp", 0) __
+}
+public struct TopBetTabsFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var selectedTab: NNSBComponentBusiness.TopBetType {
+      get
+      set
+      _modify
+    }
+    public let availableTabs: [NNSBComponentBusiness.TopBetType]
+    public init(selectedTab: NNSBComponentBusiness.TopBetType = .newest, availableTabs: [NNSBComponentBusiness.TopBetType] = TopBetType.allCases)
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.TopBetTabsFeature.State, b: NNSBComponentPresentation.TopBetTabsFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case selectTab(NNSBComponentBusiness.TopBetType)
+    case refresh
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.TopBetTabsFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TopBetTabsFeature.Action> {
+        get
+      }
+      public var selectTab: CasePathsCore.AnyCasePath<NNSBComponentPresentation.TopBetTabsFeature.Action, NNSBComponentBusiness.TopBetType> {
+        get
+      }
+      public var refresh: CasePathsCore.AnyCasePath<NNSBComponentPresentation.TopBetTabsFeature.Action, Swift.Void> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TopBetTabsFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TopBetTabsFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TopBetTabsFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.TopBetTabsFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.TopBetTabsFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.TopBetTabsFeature.Action, b: NNSBComponentPresentation.TopBetTabsFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.TopBetTabsFeature.State, NNSBComponentPresentation.TopBetTabsFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.TopBetTabsFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17TopBetTabsFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.TopBetTabsFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.TopBetTabsFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public struct BasketballPeriodScoreboardModel : Swift.Equatable {
+  public struct Cell : Swift.Equatable {
+    public let title: Swift.String
+    public let home: Swift.Int?
+    public let away: Swift.Int?
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(title: Swift.String, home: Swift.Int?, away: Swift.Int?)
+    #endif
+    public static func == (a: NNSBComponentPresentation.BasketballPeriodScoreboardModel.Cell, b: NNSBComponentPresentation.BasketballPeriodScoreboardModel.Cell) -> Swift.Bool
+  }
+  public let headerTitle: Swift.String
+  public let columns: [NNSBComponentPresentation.BasketballPeriodScoreboardModel.Cell]
+  public let homeRowTitle: Swift.String
+  public let awayRowTitle: Swift.String
+  public init(headerTitle: Swift.String = "Hiệp", columns: [NNSBComponentPresentation.BasketballPeriodScoreboardModel.Cell], homeRowTitle: Swift.String = "Đội nhà", awayRowTitle: Swift.String = "Đội khách")
+  public static func == (a: NNSBComponentPresentation.BasketballPeriodScoreboardModel, b: NNSBComponentPresentation.BasketballPeriodScoreboardModel) -> Swift.Bool
+}
+@_Concurrency.MainActor @preconcurrency public struct BasketballPeriodScoreboardView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let model: NNSBComponentPresentation.BasketballPeriodScoreboardModel
+  @_Concurrency.MainActor @preconcurrency public let context: NNSBComponentPresentation.ScoreboardDisplayContext
+  @_Concurrency.MainActor @preconcurrency public let sportId: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(model: NNSBComponentPresentation.BasketballPeriodScoreboardModel, context: NNSBComponentPresentation.ScoreboardDisplayContext = .matchCard, sportId: Swift.Int? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation30BasketballPeriodScoreboardViewV4bodyQrvp", 0) __
+}
+@_hasMissingDesignatedInitializers final public class FloatingOverlayMediaManager : Combine.ObservableObject, @unchecked Swift.Sendable {
+  public static let shared: NNSBComponentPresentation.FloatingOverlayMediaManager
+  @Combine.Published @_projectedValueProperty($isVisible) final public var isVisible: Swift.Bool {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  final public var $isVisible: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($mediaType) final public var mediaType: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $mediaType: Combine.Published<NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($eventStatsId) final public var eventStatsId: Swift.Int64? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $eventStatsId: Combine.Published<Swift.Int64?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($streamLink) final public var streamLink: Swift.String? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $streamLink: Combine.Published<Swift.String?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($webLink) final public var webLink: Swift.String? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $webLink: Combine.Published<Swift.String?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #endif
+  @Combine.Published @_projectedValueProperty($offset) final public var offset: CoreFoundation.CGSize {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  final public var $offset: Combine.Published<CoreFoundation.CGSize>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($hitFrame) final public var hitFrame: CoreFoundation.CGRect {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  final public var $hitFrame: Combine.Published<CoreFoundation.CGRect>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($displayFrame) final public var displayFrame: CoreFoundation.CGRect {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  final public var $displayFrame: Combine.Published<CoreFoundation.CGRect>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($isMediaFloating) final public var isMediaFloating: Swift.Bool {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+  }
+  final public var $isMediaFloating: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($currentEventId) final public var currentEventId: Swift.Int? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $currentEventId: Combine.Published<Swift.Int?>.Publisher {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($currentLeagueId) final public var currentLeagueId: Swift.Int? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $currentLeagueId: Combine.Published<Swift.Int?>.Publisher {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($currentSportId) final public var currentSportId: Swift.Int? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $currentSportId: Combine.Published<Swift.Int?>.Publisher {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @Combine.Published @_projectedValueProperty($currentMatchDetailEventId) final public var currentMatchDetailEventId: Swift.Int? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public var $currentMatchDetailEventId: Combine.Published<Swift.Int?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func show(mediaType: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType?, eventStatsId: Swift.Int64?, streamLink: Swift.String?, webLink: Swift.String?)
+  #endif
+  final public func hide()
+  final public func clear()
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func configure(mediaType: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType?, eventStatsId: Swift.Int64?, streamLink: Swift.String?, webLink: Swift.String?)
+  #endif
+  final public func showIfNeeded()
+  #if compiler(>=5.3) && $NonescapableTypes
+  final public func resetForNewMatch(matchId: Swift.Int?, leagueId: Swift.Int? = nil, sportId: Swift.Int? = nil)
+  #endif
+  final public var isFloatingInsideCurrentMatchDetail: Swift.Bool {
+    get
+  }
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchCardFullView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchCardFullFeature>, navigateToMatchDetail: @escaping (ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchV2DetailFeature>) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17MatchCardFullViewV4bodyQrvp", 0) __
+}
+public struct EachGameTabFilterFeature {
+  public init()
+  public struct MatchFilters : Swift.Equatable {
+    public var parlayOnly: Swift.Bool {
+      get
+      set
+    }
+    public var hasStats: Swift.Bool
+    public var liveOnly: Swift.Bool
+    public var goodPrice: Swift.Bool
+    public var hasTimeline: Swift.Bool
+    public var canCashout: Swift.Bool
+    public init(parlayOnly: Swift.Bool = false, hasStats: Swift.Bool = false, liveOnly: Swift.Bool = false, goodPrice: Swift.Bool = false, hasTimeline: Swift.Bool = false, canCashout: Swift.Bool = false)
+    public static func == (a: NNSBComponentPresentation.EachGameTabFilterFeature.MatchFilters, b: NNSBComponentPresentation.EachGameTabFilterFeature.MatchFilters) -> Swift.Bool
+  }
+  public enum SortOption : Swift.Equatable {
+    case normal
+    case byTime
+    public static func == (a: NNSBComponentPresentation.EachGameTabFilterFeature.SortOption, b: NNSBComponentPresentation.EachGameTabFilterFeature.SortOption) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Tab : Swift.Equatable {
+    case match
+    case league
+    public static func == (a: NNSBComponentPresentation.EachGameTabFilterFeature.Tab, b: NNSBComponentPresentation.EachGameTabFilterFeature.Tab) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public struct State : Swift.Equatable {
+    public var filters: NNSBComponentPresentation.EachGameTabFilterFeature.MatchFilters {
+      get
+      set
+      _modify
+    }
+    public var sortOption: NNSBComponentPresentation.EachGameTabFilterFeature.SortOption {
+      get
+      set
+      _modify
+    }
+    public var selectedTab: NNSBComponentPresentation.EachGameTabFilterFeature.Tab {
+      get
+      set
+      _modify
+    }
+    public var searchText: Swift.String {
+      get
+      set
+      _modify
+    }
+    public var leagues: IdentifiedCollections.IdentifiedArrayOf<NNSBComponentPresentation.LeagueFilterItemFeature.State> {
+      get
+      set
+      _modify
+    }
+    public var selectedLeagueCount: Swift.Int {
+      get
+    }
+    public var isAllLeaguesSelected: Swift.Bool {
+      get
+    }
+    public init(leagues: IdentifiedCollections.IdentifiedArrayOf<NNSBComponentPresentation.LeagueFilterItemFeature.State> = [])
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.EachGameTabFilterFeature.State, b: NNSBComponentPresentation.EachGameTabFilterFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case resetAll
+    case selectTab(NNSBComponentPresentation.EachGameTabFilterFeature.Tab)
+    case toggleParlay
+    case toggleStats
+    case toggleLive
+    case toggleGoodPrice
+    case toggleTimeline
+    case toggleCashout
+    case changeSort(NNSBComponentPresentation.EachGameTabFilterFeature.SortOption)
+    case setSearchText(Swift.String)
+    case league(ComposableArchitecture.IdentifiedActionOf<NNSBComponentPresentation.LeagueFilterItemFeature>)
+    case selectAllLeagues
+    case clearAllLeagues
+    case apply
+    case close
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.EachGameTabFilterFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.EachGameTabFilterFeature.Action> {
+        get
+      }
+      public var resetAll: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var selectTab: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, NNSBComponentPresentation.EachGameTabFilterFeature.Tab> {
+        get
+      }
+      public var toggleParlay: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleStats: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleLive: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleGoodPrice: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleTimeline: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleCashout: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var changeSort: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, NNSBComponentPresentation.EachGameTabFilterFeature.SortOption> {
+        get
+      }
+      public var setSearchText: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.String> {
+        get
+      }
+      public var league: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, ComposableArchitecture.IdentifiedActionOf<NNSBComponentPresentation.LeagueFilterItemFeature>> {
+        get
+      }
+      public var selectAllLeagues: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var clearAllLeagues: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var apply: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public var close: CasePathsCore.AnyCasePath<NNSBComponentPresentation.EachGameTabFilterFeature.Action, Swift.Void> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.EachGameTabFilterFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.EachGameTabFilterFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.EachGameTabFilterFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.EachGameTabFilterFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.EachGameTabFilterFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.EachGameTabFilterFeature.Action, b: NNSBComponentPresentation.EachGameTabFilterFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.EachGameTabFilterFeature.State, NNSBComponentPresentation.EachGameTabFilterFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.EachGameTabFilterFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation24EachGameTabFilterFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.EachGameTabFilterFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.EachGameTabFilterFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+extension Foundation.NSNotification.Name {
+  public static let goToMyBetsTab: Foundation.Notification.Name
+  public static let quickBetToast: Foundation.Notification.Name
+}
+public enum QuickBetToastEvent : Swift.String {
+  case loading
+  case success
+  case error
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init?(rawValue: Swift.String)
+  #endif
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct QuickBetToastPayload {
+  public static let event: Swift.String
+  public static let message: Swift.String
+}
+@_hasMissingDesignatedInitializers final public class SBToastPresenter : @unchecked Swift.Sendable {
+  public static let shared: NNSBComponentPresentation.SBToastPresenter
+  final public func setup()
+  @objc deinit
+}
+public enum ServingTeam : Swift.Sendable, Swift.Hashable {
+  case home
+  case away
+  public static func == (a: NNSBComponentPresentation.ServingTeam, b: NNSBComponentPresentation.ServingTeam) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension NNSBComponentBusiness.EventV2Score {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var servingTeam: NNSBComponentPresentation.ServingTeam? {
+    get
+  }
+  #endif
+}
+extension NNSBComponentBusiness.EventV2VolleyballScore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toSetScoreBoard() -> NNSBComponentPresentation.MatchSetScoreBoard?
+  #endif
+}
+extension NNSBComponentBusiness.EventV2TennisScore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toSetScoreBoard() -> NNSBComponentPresentation.MatchSetScoreBoard?
+  #endif
+}
+extension NNSBComponentBusiness.EventV2TableTennisScore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toSetScoreBoard() -> NNSBComponentPresentation.MatchSetScoreBoard?
+  #endif
+}
+extension NNSBComponentBusiness.EventV2BasketballScore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func period(at index: Swift.Int) -> (home: Swift.Int?, away: Swift.Int?)
+  #endif
+  public var hasH1Slot: Swift.Bool {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var q1: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var q2: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var q3: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var q4: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var h1: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var tt: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var hp: (home: Swift.Int?, away: Swift.Int?) {
+    get
+  }
+  #endif
+}
+extension NNSBComponentBusiness.EventV2BadmintonScore {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toSetScoreBoard() -> NNSBComponentPresentation.MatchSetScoreBoard?
+  #endif
+}
+public struct MatchEventsFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var events: [NNSBComponentBusiness.MatchEvent] {
+      get
+      set
+      _modify
+    }
+    public init(events: [NNSBComponentBusiness.MatchEvent] = [])
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchEventsFeature.State, b: NNSBComponentPresentation.MatchEventsFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case updateEvents([NNSBComponentBusiness.MatchEvent])
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchEventsFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchEventsFeature.Action> {
+        get
+      }
+      public var updateEvents: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchEventsFeature.Action, [NNSBComponentBusiness.MatchEvent]> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchEventsFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchEventsFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchEventsFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchEventsFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchEventsFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchEventsFeature.Action, b: NNSBComponentPresentation.MatchEventsFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchEventsFeature.State, NNSBComponentPresentation.MatchEventsFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchEventsFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchEventsFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+extension NNSBComponentPresentation.MatchEventsFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation18MatchEventsFeatureV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct OddsChangeFillOverlay : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let isUp: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public let startedAt: Foundation.Date
+  @_Concurrency.MainActor @preconcurrency public init(isUp: Swift.Bool, startedAt: Foundation.Date)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation21OddsChangeFillOverlayV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchEventsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.MatchEventsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation15MatchEventsViewV4bodyQrvp", 0) __
+}
+public enum OddsTextStyle {
+  public static func priceColor(_ oddsText: Swift.String) -> SwiftUICore.Color
+}
+public struct MatchDetailTabsFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var switchable: NNSBComponentPresentation.SwitchableFeature.State {
+      get
+      set
+      _modify
+    }
+    public let availableTabs: [NNSBComponentBusiness.MatchDetailTab]
+    public var selectedTab: NNSBComponentBusiness.MatchDetailTab {
+      get
+    }
+    public init(selectedTab: NNSBComponentBusiness.MatchDetailTab = .selectBet, availableTabs: [NNSBComponentBusiness.MatchDetailTab] = MatchDetailTab.allCases)
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchDetailTabsFeature.State, b: NNSBComponentPresentation.MatchDetailTabsFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case switchable(NNSBComponentPresentation.SwitchableFeature.Action)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchDetailTabsFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailTabsFeature.Action> {
+        get
+      }
+      public var switchable: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailTabsFeature.Action, NNSBComponentPresentation.SwitchableFeature.Action> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailTabsFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailTabsFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailTabsFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchDetailTabsFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchDetailTabsFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchDetailTabsFeature.Action, b: NNSBComponentPresentation.MatchDetailTabsFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchDetailTabsFeature.State, NNSBComponentPresentation.MatchDetailTabsFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchDetailTabsFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation22MatchDetailTabsFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchDetailTabsFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchDetailTabsFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public struct LeagueFilterItemFeature {
+  public init()
+  public struct State : Swift.Equatable, Swift.Identifiable {
+    public let id: Swift.Int
+    public var name: Swift.String {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var iconURL: Foundation.URL? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var matchCount: Swift.Int {
+      get
+      set
+      _modify
+    }
+    public var isSelected: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(id: Swift.Int, name: Swift.String, iconURL: Foundation.URL?, matchCount: Swift.Int, isSelected: Swift.Bool = false)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.LeagueFilterItemFeature.State, b: NNSBComponentPresentation.LeagueFilterItemFeature.State) -> Swift.Bool
+    public typealias ID = Swift.Int
+  }
+  public enum Action : Swift.Equatable {
+    case toggleSelection
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.LeagueFilterItemFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueFilterItemFeature.Action> {
+        get
+      }
+      public var toggleSelection: CasePathsCore.AnyCasePath<NNSBComponentPresentation.LeagueFilterItemFeature.Action, Swift.Void> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueFilterItemFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueFilterItemFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.LeagueFilterItemFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.LeagueFilterItemFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.LeagueFilterItemFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.LeagueFilterItemFeature.Action, b: NNSBComponentPresentation.LeagueFilterItemFeature.Action) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.LeagueFilterItemFeature.State, NNSBComponentPresentation.LeagueFilterItemFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.LeagueFilterItemFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation23LeagueFilterItemFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.LeagueFilterItemFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.LeagueFilterItemFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+public struct MatchLikeModel : Swift.Equatable {
+  public static func == (a: NNSBComponentPresentation.MatchLikeModel, b: NNSBComponentPresentation.MatchLikeModel) -> Swift.Bool
+}
+public struct MatchTimeAndLikeFeature : ComposableArchitecture.Reducer {
+  public init()
+  public struct State : Swift.Equatable {
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var matchStartTimeValue: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var matchStartTimeColor: SwiftUICore.Color? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var isLive: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var phaseTitle: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var liveElapsedSec: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var isLiked: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var sportId: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var eventId: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var likeIconColor: SwiftUICore.Color {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(sportId: Swift.Int? = nil, eventId: Swift.Int? = nil, matchStartTimeValue: Swift.String? = nil, matchStartTimeColor: SwiftUICore.Color? = nil, isLive: Swift.Bool = false, phaseTitle: Swift.String? = nil, liveElapsedSec: Swift.Int? = nil, isLiked: Swift.Bool = false)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchTimeAndLikeFeature.State, b: NNSBComponentPresentation.MatchTimeAndLikeFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case onAppear
+    case onDisappear
+    case likeTapped
+    case addFavoriteResponse(Swift.Bool)
+    case removeFavoriteResponse(Swift.Bool)
+    case wsSetLive(isLive: Swift.Bool, phase: Swift.String?, elapsedSec: Swift.Int?)
+    public static func == (a: NNSBComponentPresentation.MatchTimeAndLikeFeature.Action, b: NNSBComponentPresentation.MatchTimeAndLikeFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchTimeAndLikeFeature.State, NNSBComponentPresentation.MatchTimeAndLikeFeature.Action> {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation23MatchTimeAndLikeFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchTimeAndLikeFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchMediaDisplayView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public static func getMediaHeight(for mediaType: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType, isFloating: Swift.Bool = false) -> CoreFoundation.CGFloat
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(mediaType: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType?, liveStreamStore: ComposableArchitecture.StoreOf<NNSBComponentPresentation.LiveStreamFeature>, eventStatsId: Swift.Int64?, isFloating: Swift.Bool = false, offsetY: CoreFoundation.CGFloat = 0, closeAction: (() -> Swift.Void)? = nil, contentAction: (() -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation21MatchMediaDisplayViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct FloatingOverlayMediaView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init()
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation24FloatingOverlayMediaViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct H2HStatsView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.H2HStatsFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation12H2HStatsViewV4bodyQrvp", 0) __
+}
+extension NNSBComponentBusiness.MatchEntity {
+  public var dateTimeColor: SwiftUICore.Color {
+    get
+  }
+}
+extension NNSBComponentBusiness.MarketKind {
+  public var isCornerMarket: Swift.Bool {
+    get
+  }
+}
+public struct BetDistributionFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var distribution: NNSBComponentBusiness.BetDistribution {
+      get
+      set
+      _modify
+    }
+    public var isExpanded: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public init(distribution: NNSBComponentBusiness.BetDistribution = BetDistribution(sections: []), isExpanded: Swift.Bool = false)
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.BetDistributionFeature.State, b: NNSBComponentPresentation.BetDistributionFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case toggleExpansion
+    case updateDistribution(NNSBComponentBusiness.BetDistribution)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.BetDistributionFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetDistributionFeature.Action> {
+        get
+      }
+      public var toggleExpansion: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetDistributionFeature.Action, Swift.Void> {
+        get
+      }
+      public var updateDistribution: CasePathsCore.AnyCasePath<NNSBComponentPresentation.BetDistributionFeature.Action, NNSBComponentBusiness.BetDistribution> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetDistributionFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetDistributionFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.BetDistributionFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.BetDistributionFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.BetDistributionFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.BetDistributionFeature.Action, b: NNSBComponentPresentation.BetDistributionFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.BetDistributionFeature.State, NNSBComponentPresentation.BetDistributionFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.BetDistributionFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation22BetDistributionFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.BetDistributionFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.BetDistributionFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct InlineWebView : SwiftUI.UIViewRepresentable {
+  @_Concurrency.MainActor @preconcurrency public let url: Foundation.URL
+  @_Concurrency.MainActor @preconcurrency public init(url: Foundation.URL)
+  @_Concurrency.MainActor @preconcurrency public func makeUIView(context: NNSBComponentPresentation.InlineWebView.Context) -> WebKit.WKWebView
+  @_Concurrency.MainActor @preconcurrency public func updateUIView(_ uiView: WebKit.WKWebView, context: NNSBComponentPresentation.InlineWebView.Context)
+  @_Concurrency.MainActor @preconcurrency public func makeCoordinator() -> NNSBComponentPresentation.InlineWebView.Coordinator
+  @objc @_inheritsConvenienceInitializers @_Concurrency.MainActor @preconcurrency public class Coordinator : ObjectiveC.NSObject, WebKit.WKNavigationDelegate {
+    #if compiler(>=5.3) && $NonescapableTypes
+    @_Concurrency.MainActor @preconcurrency @objc public func webView(_ webView: WebKit.WKWebView, didFinish nav: WebKit.WKNavigation!)
+    #endif
+    @_Concurrency.MainActor @preconcurrency @objc override dynamic public init()
+    @objc deinit
+  }
+  public typealias Body = Swift.Never
+  public typealias UIViewType = WebKit.WKWebView
+}
+public struct TeamLineupFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var homeLineup: NNSBComponentBusiness.TeamLineup {
+      get
+      set
+      _modify
+    }
+    public var awayLineup: NNSBComponentBusiness.TeamLineup {
+      get
+      set
+      _modify
+    }
+    public init(homeLineup: NNSBComponentBusiness.TeamLineup = TeamLineup(formation: "4-4-2", players: []), awayLineup: NNSBComponentBusiness.TeamLineup = TeamLineup(formation: "4-3-3", players: []))
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.TeamLineupFeature.State, b: NNSBComponentPresentation.TeamLineupFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case updateLineups(home: NNSBComponentBusiness.TeamLineup, away: NNSBComponentBusiness.TeamLineup)
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.TeamLineupFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TeamLineupFeature.Action> {
+        get
+      }
+      public var updateLineups: CasePathsCore.AnyCasePath<NNSBComponentPresentation.TeamLineupFeature.Action, (home: NNSBComponentBusiness.TeamLineup, away: NNSBComponentBusiness.TeamLineup)> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TeamLineupFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TeamLineupFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.TeamLineupFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.TeamLineupFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.TeamLineupFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.TeamLineupFeature.Action, b: NNSBComponentPresentation.TeamLineupFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.TeamLineupFeature.State, NNSBComponentPresentation.TeamLineupFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.TeamLineupFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17TeamLineupFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.TeamLineupFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.TeamLineupFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct MatchDetailTopBarView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public let leagueName: Swift.String
+  @_Concurrency.MainActor @preconcurrency public let hasQuickBet: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public let isFavorite: Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public let onBack: (() -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public let onTapQuickBet: (() -> Swift.Void)?
+  @_Concurrency.MainActor @preconcurrency public let onToggleFavorite: (() -> Swift.Void)?
+  #if compiler(>=5.3) && $NonescapableTypes
+  @_Concurrency.MainActor @preconcurrency public init(leagueName: Swift.String, hasQuickBet: Swift.Bool, isFavorite: Swift.Bool, onBack: (() -> Swift.Void)? = nil, onTapQuickBet: (() -> Swift.Void)? = nil, onToggleFavorite: (() -> Swift.Void)? = nil)
+  #endif
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation21MatchDetailTopBarViewV4bodyQrvp", 0) __
+}
+public struct LiveStreamFeature : ComposableArchitecture.Reducer {
+  public init()
+  public struct State : Swift.Equatable {
+    public var hasLiveStream: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var streamURL: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var webURL: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var hasPlayableItem: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var errorMessage: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var useFallback: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(hasLiveStream: Swift.Bool, streamURL: Swift.String?, webURL: Swift.String?)
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.LiveStreamFeature.State, b: NNSBComponentPresentation.LiveStreamFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case onAppear
+    case playerStatusChanged(AVFoundation.AVPlayerItem.Status)
+    case playerFailed(Swift.String)
+    case fallbackTimerFired
+    case setUseFallback(Swift.Bool)
+    public static func == (a: NNSBComponentPresentation.LiveStreamFeature.Action, b: NNSBComponentPresentation.LiveStreamFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.LiveStreamFeature.State, NNSBComponentPresentation.LiveStreamFeature.Action> {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation17LiveStreamFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.LiveStreamFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+public struct MatchDetailHeaderFeature {
+  public init()
+  public struct State : Swift.Equatable {
+    public var matchInfo: NNSBComponentBusiness.MatchDetailInfo {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var sportId: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var scoreboard: NNSBComponentPresentation.MatchDetailHeaderFeature.State.Scoreboard? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var isHeaderCollapsed: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public var liveStream: NNSBComponentPresentation.LiveStreamFeature.State {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var eventStatsId: Swift.Int64? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var hasLiveStream: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    public var hasWebStream: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var activeMediaType: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var streamLink: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var webLink: Swift.String? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public var hasQuickBet: Swift.Bool {
+      get
+      set
+      _modify
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var gameTime: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var gamePart: Swift.Int? {
+      get
+      set
+      _modify
+    }
+    #endif
+    public enum MediaType : Swift.Equatable {
+      case scoreDetail
+      case live
+      case simulation
+      public static func == (a: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType, b: NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public enum Scoreboard : Swift.Equatable {
+      case set(board: NNSBComponentPresentation.MatchSetScoreBoard, servingTeam: NNSBComponentPresentation.ServingTeam?)
+      case tennis(board: NNSBComponentPresentation.MatchSetScoreBoard, homePoint: Swift.String?, awayPoint: Swift.String?, servingTeam: NNSBComponentPresentation.ServingTeam?)
+      case basketball(model: NNSBComponentPresentation.BasketballPeriodScoreboardModel)
+      public static func == (a: NNSBComponentPresentation.MatchDetailHeaderFeature.State.Scoreboard, b: NNSBComponentPresentation.MatchDetailHeaderFeature.State.Scoreboard) -> Swift.Bool
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public init(matchInfo: NNSBComponentBusiness.MatchDetailInfo, sportId: Swift.Int? = nil, scoreboard: NNSBComponentPresentation.MatchDetailHeaderFeature.State.Scoreboard? = nil, eventStatsId: Swift.Int64? = nil, hasLiveStream: Swift.Bool = false, hasWebStream: Swift.Bool = false, streamLink: Swift.String? = nil, webLink: Swift.String? = nil, hasQuickBet: Swift.Bool = false, gameTime: Swift.Int? = nil, gamePart: Swift.Int? = nil)
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var upcomingDateDisplay: Swift.String? {
+      get
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var upcomingTimeDisplay: Swift.String? {
+      get
+    }
+    #endif
+    public var shouldShowScore: Swift.Bool {
+      get
+    }
+    public var shouldShowCollapseButton: Swift.Bool {
+      get
+    }
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var liveStatusDisplay: Swift.String? {
+      get
+    }
+    #endif
+    #if compiler(>=5.3) && $NonescapableTypes
+    public var firstHalfScoreDisplay: Swift.String? {
+      get
+    }
+    #endif
+    public var _$id: ComposableArchitecture.ObservableStateID {
+      get
+    }
+    public mutating func _$willModify()
+    public static func == (a: NNSBComponentPresentation.MatchDetailHeaderFeature.State, b: NNSBComponentPresentation.MatchDetailHeaderFeature.State) -> Swift.Bool
+  }
+  public enum Action : Swift.Equatable {
+    case tapQuickBet
+    case toggleFavorite
+    case backTapped
+    case toggleHeaderCollapse
+    case matchHeaderDetailsTapped(NNSBComponentBusiness.MatchDetailHeaderTab)
+    case updateMatchInfo(NNSBComponentBusiness.MatchDetailInfo)
+    case liveStream(NNSBComponentPresentation.LiveStreamFeature.Action)
+    case delegate(NNSBComponentPresentation.MatchDetailHeaderFeature.Action.Delegate)
+    public enum Delegate : Swift.Equatable {
+      case didToggleFavorite(Swift.Bool)
+      case didTapBack
+      case didTapQuickBet
+      public static func == (a: NNSBComponentPresentation.MatchDetailHeaderFeature.Action.Delegate, b: NNSBComponentPresentation.MatchDetailHeaderFeature.Action.Delegate) -> Swift.Bool
+    }
+    public struct AllCasePaths : CasePathsCore.CasePathReflectable, Swift.Sendable, Swift.Sequence {
+      public subscript(root: NNSBComponentPresentation.MatchDetailHeaderFeature.Action) -> CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action> {
+        get
+      }
+      public var tapQuickBet: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleFavorite: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, Swift.Void> {
+        get
+      }
+      public var backTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, Swift.Void> {
+        get
+      }
+      public var toggleHeaderCollapse: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, Swift.Void> {
+        get
+      }
+      public var matchHeaderDetailsTapped: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, NNSBComponentBusiness.MatchDetailHeaderTab> {
+        get
+      }
+      public var updateMatchInfo: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, NNSBComponentBusiness.MatchDetailInfo> {
+        get
+      }
+      public var liveStream: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, NNSBComponentPresentation.LiveStreamFeature.Action> {
+        get
+      }
+      public var delegate: CasePathsCore.AnyCasePath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action, NNSBComponentPresentation.MatchDetailHeaderFeature.Action.Delegate> {
+        get
+      }
+      public func makeIterator() -> Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action>]>
+      public typealias Element = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action>]>.Element
+      public typealias Iterator = Swift.IndexingIterator<[CasePathsCore.PartialCaseKeyPath<NNSBComponentPresentation.MatchDetailHeaderFeature.Action>]>
+      public typealias Root = NNSBComponentPresentation.MatchDetailHeaderFeature.Action
+    }
+    public static var allCasePaths: NNSBComponentPresentation.MatchDetailHeaderFeature.Action.AllCasePaths {
+      get
+    }
+    public static func == (a: NNSBComponentPresentation.MatchDetailHeaderFeature.Action, b: NNSBComponentPresentation.MatchDetailHeaderFeature.Action) -> Swift.Bool
+  }
+  public var body: some ComposableArchitecture.Reducer<NNSBComponentPresentation.MatchDetailHeaderFeature.State, NNSBComponentPresentation.MatchDetailHeaderFeature.Action> {
+    get
+  }
+}
+extension NNSBComponentPresentation.MatchDetailHeaderFeature : ComposableArchitecture.Reducer {
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation24MatchDetailHeaderFeatureV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.MatchDetailHeaderFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
+}
+extension NNSBComponentPresentation.MatchDetailHeaderFeature.Action : CasePathsCore.CasePathable, CasePathsCore.CasePathIterable {
+}
+@_Concurrency.MainActor @preconcurrency public struct QuickBetView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(store: ComposableArchitecture.StoreOf<NNSBComponentPresentation.QuickBetFeature>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s25NNSBComponentPresentation12QuickBetViewV4bodyQrvp", 0) __
+}
+extension NNSBComponentPresentation.SetScoreboardView : Swift.Sendable {}
+extension NNSBComponentPresentation.BetCardListView : Swift.Sendable {}
+extension NNSBComponentPresentation.ScoreboardDisplayContext : Swift.Hashable {}
+extension NNSBComponentPresentation.MatchDetailTabsView : Swift.Sendable {}
+extension NNSBComponentPresentation.SBNavigationView : Swift.Sendable {}
+extension NNSBComponentPresentation.StatsBarView : Swift.Sendable {}
+extension NNSBComponentPresentation.CircularStatsView : Swift.Sendable {}
+extension NNSBComponentPresentation.TopBetTabsView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchMarketView : Swift.Sendable {}
+extension NNSBComponentPresentation.TeamLineupView : Swift.Sendable {}
+extension NNSBComponentPresentation.MarketGroup : Swift.Equatable {}
+extension NNSBComponentPresentation.MarketGroup : Swift.Hashable {}
+extension NNSBComponentPresentation.MarketGroup : Swift.RawRepresentable {}
+extension NNSBComponentPresentation.MatchDetailHeaderView : Swift.Sendable {}
+extension NNSBComponentPresentation.LiveStreamView : Swift.Sendable {}
+extension NNSBComponentPresentation.SBEmptyView : Swift.Sendable {}
+extension NNSBComponentPresentation.LeagueRowView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchBadgeRowView : Swift.Sendable {}
+extension NNSBComponentPresentation.BetSelectionSummaryView : Swift.Sendable {}
+extension NNSBComponentPresentation.BetDistributionView : Swift.Sendable {}
+extension NNSBComponentPresentation.StatBoxModel.StatDirection : Swift.Equatable {}
+extension NNSBComponentPresentation.StatBoxModel.StatDirection : Swift.Hashable {}
+extension NNSBComponentPresentation.SwitchableView : Swift.Sendable {}
+extension NNSBComponentPresentation.AppLifecycleViewModifier : Swift.Sendable {}
+extension NNSBComponentPresentation.EachGameTabFilterView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchAnalyticsWebView : Swift.Sendable {}
+extension NNSBComponentPresentation.SBResultToastStyle : Swift.Hashable {}
+extension NNSBComponentPresentation.SBResultToastView : Swift.Sendable {}
+extension NNSBComponentPresentation.StatusTagView : Swift.Sendable {}
+extension NNSBComponentPresentation.HistoryCardView : Swift.Sendable {}
+extension NNSBComponentPresentation.BetTypeIconView : Swift.Sendable {}
+extension NNSBComponentPresentation.TicketSelectionRow : Swift.Sendable {}
+extension NNSBComponentPresentation.VoucherView : Swift.Sendable {}
+extension NNSBComponentPresentation.TabMatchView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchDetailView : Swift.Sendable {}
+extension NNSBComponentPresentation.SegmentedCapsulePicker : Swift.Sendable {}
+extension NNSBComponentPresentation.SegmentedSelectedMode : Swift.Equatable {}
+extension NNSBComponentPresentation.SegmentedSelectedMode : Swift.Hashable {}
+extension NNSBComponentPresentation.MatchDetailBetTabsView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchDetailBetMarketsContentView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchTimeAndLikeView : Swift.Sendable {}
+extension NNSBComponentPresentation.TeamRowView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchV2DetailFeature.Action.Delegate : Swift.Hashable {}
+extension NNSBComponentPresentation.MatchV2DetailView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchStatsView : Swift.Sendable {}
+extension NNSBComponentPresentation.BasketballPeriodScoreboardView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchCardFullView : Swift.Sendable {}
+extension NNSBComponentPresentation.EachGameTabFilterFeature.SortOption : Swift.Hashable {}
+extension NNSBComponentPresentation.EachGameTabFilterFeature.Tab : Swift.Hashable {}
+extension NNSBComponentPresentation.QuickBetToastEvent : Swift.Equatable {}
+extension NNSBComponentPresentation.QuickBetToastEvent : Swift.Hashable {}
+extension NNSBComponentPresentation.QuickBetToastEvent : Swift.RawRepresentable {}
+extension NNSBComponentPresentation.OddsChangeFillOverlay : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchEventsView : Swift.Sendable {}
+extension NNSBComponentPresentation.LeagueFilterItemFeature.Action : Swift.Hashable {}
+extension NNSBComponentPresentation.MatchMediaDisplayView : Swift.Sendable {}
+extension NNSBComponentPresentation.FloatingOverlayMediaView : Swift.Sendable {}
+extension NNSBComponentPresentation.H2HStatsView : Swift.Sendable {}
+extension NNSBComponentPresentation.InlineWebView : Swift.Sendable {}
+extension NNSBComponentPresentation.InlineWebView.Coordinator : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchDetailTopBarView : Swift.Sendable {}
+extension NNSBComponentPresentation.MatchDetailHeaderFeature.State.MediaType : Swift.Hashable {}
+extension NNSBComponentPresentation.QuickBetView : Swift.Sendable {}
