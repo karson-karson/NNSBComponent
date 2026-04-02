@@ -1,0 +1,16 @@
+K-sport Loading.png
+size:1692,1224
+filter:Linear,Linear
+pma:true
+Ball
+bounds:442,86,355,354
+offsets:26,20,407,394
+Glow
+bounds:2,2,438,438
+offsets:12,12,462,462
+Lighting
+bounds:799,92,348,348
+offsets:29,23,407,394
+Loading-Animation
+bounds:2,442,780,1688
+rotate:90
