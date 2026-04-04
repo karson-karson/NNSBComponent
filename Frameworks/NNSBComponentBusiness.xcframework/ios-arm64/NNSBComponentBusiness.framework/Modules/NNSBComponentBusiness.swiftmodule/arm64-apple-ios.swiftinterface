@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.2.4 effective-5.10 (swiftlang-6.2.4.1.4 clang-1700.6.4.2)
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target arm64-apple-ios16.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name NNSBComponentBusiness
-// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.4
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import Alamofire
 import Combine
 import Dependencies
@@ -10,7 +10,6 @@ import IdentifiedCollections
 import Moya
 import NNNetwork
 import NNSBComponentConfiguration
-import NNUICore
 import NNWebSocket
 import Swift
 import SwiftProtobuf
@@ -3858,7 +3857,6 @@ public struct GetAllHotEventV2DTO : Swift.Encodable {
   public func encode(to encoder: any Swift.Encoder) throws
 }
 extension Swift.Int {
-  public func timeAgo(_ nnl: NNUICore.NNLanguage) -> Swift.String
   public var toNanoseconds: Swift.UInt64 {
     get
   }

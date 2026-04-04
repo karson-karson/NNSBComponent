@@ -930,7 +930,7 @@ public struct LeagueDetailHeaderFeature : ComposableArchitecture.Reducer {
 }
 extension iOS_NNSBComponent.LeagueDetailHeaderFeature.State : ComposableArchitecture.ObservableState, Observation.Observable {
 }
-public enum SBToastType : Swift.Hashable {
+public enum SBToastType : Swift.Hashable, Swift.Equatable {
   case success(Swift.String)
   case error(Swift.String)
   case warning(Swift.String)
