@@ -34146,8 +34146,8 @@
       },
       {
         "kind": "Import",
-        "name": "ComposableArchitecture",
-        "printedName": "ComposableArchitecture",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
         "declKind": "Import",
         "moduleName": "NNSBComponentPresentation",
         "declAttributes": [
@@ -34156,8 +34156,8 @@
       },
       {
         "kind": "Import",
-        "name": "SwiftUI",
-        "printedName": "SwiftUI",
+        "name": "ComposableArchitecture",
+        "printedName": "ComposableArchitecture",
         "declKind": "Import",
         "moduleName": "NNSBComponentPresentation"
       },
@@ -78991,6 +78991,20 @@
           },
           {
             "kind": "Conformance",
+            "name": "KingfisherCompatibleValue",
+            "printedName": "KingfisherCompatibleValue",
+            "usr": "s:10Kingfisher0A15CompatibleValueP",
+            "mangledName": "$s10Kingfisher0A15CompatibleValueP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SentryAttributeValue",
+            "printedName": "SentryAttributeValue",
+            "usr": "s:6Sentry0A14AttributeValueP",
+            "mangledName": "$s6Sentry0A14AttributeValueP"
+          },
+          {
+            "kind": "Conformance",
             "name": "Plottable",
             "printedName": "Plottable",
             "children": [
@@ -79017,20 +79031,6 @@
             "printedName": "PrimitivePlottableProtocol",
             "usr": "s:6Charts26PrimitivePlottableProtocolP",
             "mangledName": "$s6Charts26PrimitivePlottableProtocolP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "KingfisherCompatibleValue",
-            "printedName": "KingfisherCompatibleValue",
-            "usr": "s:10Kingfisher0A15CompatibleValueP",
-            "mangledName": "$s10Kingfisher0A15CompatibleValueP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "SentryAttributeValue",
-            "printedName": "SentryAttributeValue",
-            "usr": "s:6Sentry0A14AttributeValueP",
-            "mangledName": "$s6Sentry0A14AttributeValueP"
           },
           {
             "kind": "Conformance",
@@ -83636,98 +83636,98 @@
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 12519,
+      "offset": 12520,
       "length": 2,
       "value": "12"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "FloatLiteral",
-      "offset": 12817,
+      "offset": 12818,
       "length": 3,
       "value": "0.6"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "BooleanLiteral",
-      "offset": 12914,
+      "offset": 12915,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 13330,
+      "offset": 13331,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 13426,
+      "offset": 13427,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 15564,
+      "offset": 15565,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16760,
+      "offset": 16761,
       "length": 3,
       "value": "-16"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 16896,
+      "offset": 16897,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 17291,
+      "offset": 17292,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 17354,
+      "offset": 17355,
       "length": 3,
       "value": "-16"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 17506,
+      "offset": 17507,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 17719,
+      "offset": 17720,
       "length": 2,
       "value": "16"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "IntegerLiteral",
-      "offset": 17865,
+      "offset": 17866,
       "length": 2,
       "value": "44"
     },
     {
       "filePath": "\/Users\/admin\/Data\/Works\/Nana\/iOS_NNSBComponent\/Sources\/NNSBComponentPresentation\/Sources\/NNSBComponentPresentation\/Presentations\/V2\/MatchV2Detail\/Components\/Header\/MatchMediaDisplayView.swift",
       "kind": "FloatLiteral",
-      "offset": 18419,
+      "offset": 18420,
       "length": 4,
       "value": "0.18"
     },
